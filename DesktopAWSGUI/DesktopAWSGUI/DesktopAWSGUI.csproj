@@ -64,6 +64,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\Bucket.cs" />
+    <Compile Include="Models\BucketFile.cs" />
     <Compile Include="ViewModels\CreateBucketViewModel.cs" />
     <Compile Include="ViewModels\OperateBucketViewModel.cs" />
     <Compile Include="Views\CreateBucketView.xaml.cs">

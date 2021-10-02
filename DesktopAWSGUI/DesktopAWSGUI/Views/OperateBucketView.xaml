@@ -6,13 +6,13 @@
              xmlns:local="clr-namespace:DesktopAWSGUI.Views"
              mc:Ignorable="d" Height="406.754" Width="1141.428">
     <Grid Background="White" Margin="0,0,0,-98" >
-        <ComboBox x:Name="bucketCBox" HorizontalAlignment="Left" Margin="157,26,0,0" VerticalAlignment="Top" Width="433" Height="47" FontSize="20"/>
+        <ComboBox x:Name="bucketCBox" HorizontalAlignment="Left" Margin="157,26,0,0" VerticalAlignment="Top" Width="433" Height="47" FontSize="20" SelectionChanged="bucketCBox_SelectionChanged"/>
         <Label Content="Bucket" HorizontalAlignment="Left" Margin="68,26,0,0" VerticalAlignment="Top" FontSize="25" RenderTransformOrigin="0.84,0.375"/>
         <Label Content="File" HorizontalAlignment="Left" Margin="68,88,0,0" VerticalAlignment="Top" FontSize="25" RenderTransformOrigin="0.84,0.375"/>
         <Button Content="Choose File" HorizontalAlignment="Left" Margin="604,88,0,0" VerticalAlignment="Top" Width="154" Height="47" FontSize="25" Click="ChooseFile"/>
         <Button Content="Upload" HorizontalAlignment="Left" Margin="604,151,0,0" VerticalAlignment="Top" Width="154" Height="47" FontSize="25" Click="Upload"/>
         <Button Content="Back To Main" HorizontalAlignment="Left" Margin="604,355,0,0" VerticalAlignment="Top" Width="154" Height="47" FontSize="25"/>
-        <DataGrid HorizontalAlignment="Left" Height="251" Margin="42,151,0,0" VerticalAlignment="Top" Width="548">
+        <DataGrid x:Name="fileInfo" HorizontalAlignment="Left" Height="251" Margin="42,151,0,0" VerticalAlignment="Top" Width="548">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="360" Header="File Name"
                             Binding="{Binding FileName}" />

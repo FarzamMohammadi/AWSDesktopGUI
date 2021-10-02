@@ -2,6 +2,7 @@
 using Amazon.S3;
 using Amazon.S3.Model;
 using Amazon.S3.Transfer;
+using DesktopAWSGUI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -106,6 +107,35 @@ namespace DesktopAWSGUI.Views
 
                 System.Windows.MessageBox.Show("Please provide the necessary information for upload.");
             }
+        }
+
+        private void bucketCBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string selectedBucket = bucketCBox.SelectedItem.ToString();
+            if (selectedBucket != "")
+            {
+                this.fileInfo.Items.Clear();
+                ListObjectsRequest listRequest = new ListObjectsRequest
+                {
+                    BucketName = selectedBucket,
+                };
+
+                ListObjectsResponse listResponse;
+                do
+                {
+                    // Get a list of objects
+                    listResponse = s3Client.ListObjects(listRequest);
+                    foreach (S3Object obj in listResponse.S3Objects)
+                    {
+                        BucketFile file = new BucketFile(obj.Key.ToString(), obj.Size.ToString());
+                        this.fileInfo.Items.Add(file);
+                    }
+
+                    // Set the marker property
+                    listRequest.Marker = listResponse.NextMarker;
+                } while (listResponse.IsTruncated);
+            }
+
         }
     }
 }
