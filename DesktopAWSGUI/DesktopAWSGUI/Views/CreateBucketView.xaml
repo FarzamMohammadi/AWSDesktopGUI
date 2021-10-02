@@ -6,20 +6,18 @@
              xmlns:local="clr-namespace:DesktopAWSGUI.Views"
              xmlns:viewmodels="clr-namespace:DesktopAWSGUI.ViewModels"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"
-             DataContext="{Binding}">
+             d:DesignHeight="600" Width="812">
     <UserControl.Resources>
         <DataTemplate x:Name="bucketOperationTemplate" DataType="{x:Type viewmodels:OperateBucketViewModel}">
-                <local:OperateBucketView DataContext="{Binding}"/>
-            </DataTemplate>
+            <local:OperateBucketView DataContext="{Binding}"/>
+        </DataTemplate>
     </UserControl.Resources>
-    
+
     <Grid Background="White" Margin="0,0,0,-98">
         <Button Content="Create Bucket" HorizontalAlignment="Left" Margin="591,21,0,0" VerticalAlignment="Top" Height="26" Width="199" FontSize="15" Click="CreateBucket"/>
-        <Button Content="Back To Main Menu" HorizontalAlignment="Center" Margin="296,368,246,0" VerticalAlignment="Top" Height="32" Width="258" FontSize="15"  Click="BackToMain"/>
         <TextBox Name="bNameTBox"  HorizontalAlignment="Left" Margin="175,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="379" Height="26" FontSize="15"/>
         <Label Content="Bucket Name:" HorizontalAlignment="Left" Margin="40,16,0,0" VerticalAlignment="Top" Height="31" Width="98" FontSize="15"/>
-        <DataGrid x:Name="bucketInfo" Margin="40,65,40,204">
+        <DataGrid x:Name="bucketInfo" Margin="40,65,40,333">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="360" Header="Bucket Name"
                             Binding="{Binding BucketName}" />
@@ -27,6 +25,9 @@
                             Binding="{Binding BucketDate}" />
             </DataGrid.Columns>
         </DataGrid>
+        <Button Content="Back To Main Menu" HorizontalAlignment="Center" Margin="296,390,258,0" VerticalAlignment="Top" Height="32" Width="258" FontSize="15"  Click="BackToMain"/>
         <Label Content="Bucket Name must not contain any uppercase characters and whitespaces" HorizontalAlignment="Left" Margin="175,43,0,0" VerticalAlignment="Top" FontSize="9" Foreground="#FF9433CB"/>
+        <ContentControl  Content="{Binding CurrentViewModel}" Margin="0,0,10,0"/>
+
     </Grid>
 </UserControl>

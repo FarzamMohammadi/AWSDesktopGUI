@@ -25,29 +25,10 @@ namespace DesktopAWSGUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        private static readonly RegionEndpoint bucketRegion = RegionEndpoint.CACentral1;
-
-        private readonly IAmazonS3 s3Client;
-
+      
         public MainWindow()
         {
             InitializeComponent();
-            s3Client = new AmazonS3Client(
-                     "AKIA5EUHVKP3OKLQQPTA",
-                     "qp9tc6V82Sq7LrAWxAijVHd0czY7SdumD+f6B0cl",
-                        RegionEndpoint.CACentral1);
-        }
-        private void BucketOperations(object sender, RoutedEventArgs e)
-        {
-            DataContext = new OperateBucketViewModel();
-        }
-        private void CreateBucket(object sender, RoutedEventArgs e)
-        {
-            DataContext = new CreateBucketViewModel();
-        }
-        private void Exit(object sender, RoutedEventArgs e)
-        {
-            Close();
         }
 
     }

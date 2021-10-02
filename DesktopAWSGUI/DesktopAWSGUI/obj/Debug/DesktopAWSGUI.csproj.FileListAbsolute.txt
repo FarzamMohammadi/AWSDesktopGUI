@@ -52,3 +52,32 @@ C:\Users\farza\Desktop\ASSSSS\AWSDesktopGUI\DesktopAWSGUI\DesktopAWSGUI\obj\Debu
 C:\Users\farza\Desktop\ASSSSS\AWSDesktopGUI\DesktopAWSGUI\DesktopAWSGUI\obj\Debug\DesktopAWSGUI.csproj.GenerateResource.cache
 C:\Users\farza\Desktop\ASSSSS\AWSDesktopGUI\DesktopAWSGUI\DesktopAWSGUI\obj\Debug\DesktopAWSGUI.csproj.CoreCompileInputs.cache
 C:\Users\farza\Desktop\ASSSSS\AWSDesktopGUI\DesktopAWSGUI\DesktopAWSGUI\obj\Debug\DesktopAWSGUI.csproj.CopyComplete
+C:\Users\farza\Desktop\COMP306_Workspace - Copy\AWSDesktopGUI\DesktopAWSGUI\DesktopAWSGUI\bin\Debug\DesktopAWSGUI.exe.config
+C:\Users\farza\Desktop\COMP306_Workspace - Copy\AWSDesktopGUI\DesktopAWSGUI\DesktopAWSGUI\bin\Debug\DesktopAWSGUI.exe
+C:\Users\farza\Desktop\COMP306_Workspace - Copy\AWSDesktopGUI\DesktopAWSGUI\DesktopAWSGUI\bin\Debug\DesktopAWSGUI.pdb
+C:\Users\farza\Desktop\COMP306_Workspace - Copy\AWSDesktopGUI\DesktopAWSGUI\DesktopAWSGUI\bin\Debug\AWSSDK.Core.dll
+C:\Users\farza\Desktop\COMP306_Workspace - Copy\AWSDesktopGUI\DesktopAWSGUI\DesktopAWSGUI\bin\Debug\AWSSDK.S3.dll
+C:\Users\farza\Desktop\COMP306_Workspace - Copy\AWSDesktopGUI\DesktopAWSGUI\DesktopAWSGUI\bin\Debug\AWSSDK.Core.pdb
+C:\Users\farza\Desktop\COMP306_Workspace - Copy\AWSDesktopGUI\DesktopAWSGUI\DesktopAWSGUI\bin\Debug\AWSSDK.Core.xml
+C:\Users\farza\Desktop\COMP306_Workspace - Copy\AWSDesktopGUI\DesktopAWSGUI\DesktopAWSGUI\bin\Debug\AWSSDK.S3.pdb
+C:\Users\farza\Desktop\COMP306_Workspace - Copy\AWSDesktopGUI\DesktopAWSGUI\DesktopAWSGUI\bin\Debug\AWSSDK.S3.xml
+C:\Users\farza\Desktop\COMP306_Workspace - Copy\AWSDesktopGUI\DesktopAWSGUI\DesktopAWSGUI\obj\Debug\MainWindow.g.cs
+C:\Users\farza\Desktop\COMP306_Workspace - Copy\AWSDesktopGUI\DesktopAWSGUI\DesktopAWSGUI\obj\Debug\Views\CreateBucketView.g.cs
+C:\Users\farza\Desktop\COMP306_Workspace - Copy\AWSDesktopGUI\DesktopAWSGUI\DesktopAWSGUI\obj\Debug\Views\OperateBucketView.g.cs
+C:\Users\farza\Desktop\COMP306_Workspace - Copy\AWSDesktopGUI\DesktopAWSGUI\DesktopAWSGUI\obj\Debug\App.g.cs
+C:\Users\farza\Desktop\COMP306_Workspace - Copy\AWSDesktopGUI\DesktopAWSGUI\DesktopAWSGUI\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\farza\Desktop\COMP306_Workspace - Copy\AWSDesktopGUI\DesktopAWSGUI\DesktopAWSGUI\obj\Debug\DesktopAWSGUI_MarkupCompile.cache
+C:\Users\farza\Desktop\COMP306_Workspace - Copy\AWSDesktopGUI\DesktopAWSGUI\DesktopAWSGUI\obj\Debug\DesktopAWSGUI_MarkupCompile.lref
+C:\Users\farza\Desktop\COMP306_Workspace - Copy\AWSDesktopGUI\DesktopAWSGUI\DesktopAWSGUI\obj\Debug\MainWindow.baml
+C:\Users\farza\Desktop\COMP306_Workspace - Copy\AWSDesktopGUI\DesktopAWSGUI\DesktopAWSGUI\obj\Debug\Views\CreateBucketView.baml
+C:\Users\farza\Desktop\COMP306_Workspace - Copy\AWSDesktopGUI\DesktopAWSGUI\DesktopAWSGUI\obj\Debug\Views\OperateBucketView.baml
+C:\Users\farza\Desktop\COMP306_Workspace - Copy\AWSDesktopGUI\DesktopAWSGUI\DesktopAWSGUI\obj\Debug\DesktopAWSGUI.g.resources
+C:\Users\farza\Desktop\COMP306_Workspace - Copy\AWSDesktopGUI\DesktopAWSGUI\DesktopAWSGUI\obj\Debug\DesktopAWSGUI.Properties.Resources.resources
+C:\Users\farza\Desktop\COMP306_Workspace - Copy\AWSDesktopGUI\DesktopAWSGUI\DesktopAWSGUI\obj\Debug\DesktopAWSGUI.csproj.GenerateResource.cache
+C:\Users\farza\Desktop\COMP306_Workspace - Copy\AWSDesktopGUI\DesktopAWSGUI\DesktopAWSGUI\obj\Debug\DesktopAWSGUI.csproj.CoreCompileInputs.cache
+C:\Users\farza\Desktop\COMP306_Workspace - Copy\AWSDesktopGUI\DesktopAWSGUI\DesktopAWSGUI\obj\Debug\DesktopAWSGUI.csproj.CopyComplete
+C:\Users\farza\Desktop\COMP306_Workspace - Copy\AWSDesktopGUI\DesktopAWSGUI\DesktopAWSGUI\obj\Debug\DesktopAWSGUI.exe
+C:\Users\farza\Desktop\COMP306_Workspace - Copy\AWSDesktopGUI\DesktopAWSGUI\DesktopAWSGUI\obj\Debug\DesktopAWSGUI.pdb
+C:\Users\farza\Desktop\COMP306_Workspace - Copy\AWSDesktopGUI\DesktopAWSGUI\DesktopAWSGUI\obj\Debug\Views\HomeView.g.cs
+C:\Users\farza\Desktop\COMP306_Workspace - Copy\AWSDesktopGUI\DesktopAWSGUI\DesktopAWSGUI\obj\Debug\Views\HomeView.baml
+C:\Users\farza\Desktop\COMP306_Workspace - Copy\AWSDesktopGUI\DesktopAWSGUI\DesktopAWSGUI\obj\Debug\DesktopAWSGUI.csprojAssemblyReference.cache

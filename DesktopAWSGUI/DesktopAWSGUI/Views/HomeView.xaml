@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="DesktopAWSGUI.Views.HomeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DesktopAWSGUI.Views"
+             xmlns:viewmodels="clr-namespace:DesktopAWSGUI.ViewModels"
+             xmlns:views="clr-namespace:DesktopAWSGUI.Views"
+             mc:Ignorable="d"
+             d:DesignHeight="600" d:DesignWidth="812">
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="266*"/>
+            <ColumnDefinition Width="59*"/>
+            <ColumnDefinition Width="461*"/>
+        </Grid.ColumnDefinitions>
+        <Button Content="Create/View Buckets" HorizontalAlignment="Left" Margin="10,331,0,0" VerticalAlignment="Top" Height="109" Width="244" Click="CreateBucket" FontSize="25"/>
+        <Button Content="Bucket Operations" HorizontalAlignment="Left" Margin="10,331,0,0" VerticalAlignment="Top" Height="108" Width="244" Click="BucketOperations" FontSize="25" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <Button Content="Exit" HorizontalAlignment="Left" Margin="227,331,0,0" VerticalAlignment="Top" Height="109" Width="232" Click="Exit" FontSize="25" Grid.Column="2"/>
+        <Label Content="Create By: Farzam Mohammadi" HorizontalAlignment="Left" Height="38" Margin="0,562,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" Width="812" Background="#FFD8E0BB" FontStyle="Italic" FontSize="14" FontWeight="Medium" Grid.ColumnSpan="3" RenderTransformOrigin="-0.143,2.714"/>
+        <ContentControl  Content="{Binding CurrentViewModel}" Grid.ColumnSpan="3"/>
+    </Grid>
+</UserControl>

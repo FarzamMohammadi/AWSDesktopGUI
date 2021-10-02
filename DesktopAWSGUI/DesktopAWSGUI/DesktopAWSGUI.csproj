@@ -63,12 +63,24 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\CommandBase.cs" />
+    <Compile Include="Commands\NavigateCommand.cs" />
+    <Compile Include="Commands\NavigateCreateBucketCommand.cs" />
+    <Compile Include="Commands\NavigateHomeCommand.cs" />
     <Compile Include="Models\Bucket.cs" />
     <Compile Include="Models\BucketFile.cs" />
+    <Compile Include="Services\INavigationService.cs" />
+    <Compile Include="Stores\NavigationStore.cs" />
     <Compile Include="ViewModels\CreateBucketViewModel.cs" />
+    <Compile Include="ViewModels\HomeViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\OperateBucketViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\CreateBucketView.xaml.cs">
       <DependentUpon>CreateBucketView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HomeView.xaml.cs">
+      <DependentUpon>HomeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\OperateBucketView.xaml.cs">
       <DependentUpon>OperateBucketView.xaml</DependentUpon>
@@ -86,6 +98,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\CreateBucketView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HomeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

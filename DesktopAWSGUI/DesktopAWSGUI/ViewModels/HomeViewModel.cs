@@ -6,10 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-
 namespace DesktopAWSGUI.ViewModels
 {
-    class OperateBucketViewModel : ViewModelBase
+    class HomeViewModel : ViewModelBase
     {
+      
     }
 }

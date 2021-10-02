@@ -3,6 +3,8 @@ using Amazon.S3;
 using Amazon.S3.Model;
 using Amazon.S3.Util;
 using DesktopAWSGUI.Models;
+using DesktopAWSGUI.Stores;
+using DesktopAWSGUI.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -22,8 +24,6 @@ namespace DesktopAWSGUI.Views
         private static string accessKey = "AKIA5EUHVKP3OKLQQPTA";
         private static string secretKey = "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";
         private static readonly RegionEndpoint bucketRegion = RegionEndpoint.CACentral1;
-
-
 
         public CreateBucketView()
         {
@@ -93,7 +93,9 @@ namespace DesktopAWSGUI.Views
 
          private void BackToMain(object sender, RoutedEventArgs e)
          {
-
-         }
+            NavigationStore navigationStore = new NavigationStore();
+            navigationStore.CurrentViewModel = new HomeViewModel();
+            DataContext = new MainViewModel(navigationStore);
         }
+    }
 }
