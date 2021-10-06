@@ -54,23 +54,23 @@ namespace DesktopAWSGUI.Views
             }
         }
 
-        private void CreateBucket(object sender, RoutedEventArgs e)
+        private async void CreateBucket(object sender, RoutedEventArgs e)
         {
             string userInput = bNameTBox.Text;
-            CreateBucketAsync(userInput);
+            await CreateBucketAsync(userInput);
         }
-        private void CreateBucketAsync(string userInput)
+        public async Task CreateBucketAsync(string userInput)
         {
             string bucketName = userInput;
             try
             {
                 
-                if (!AmazonS3Util.DoesS3BucketExistV2(s3Client, bucketName))
+                if (! await AmazonS3Util.DoesS3BucketExistV2Async(s3Client, bucketName))
                 {
                     PutBucketRequest request = new PutBucketRequest();
                     request.BucketName = bucketName;
                     s3Client.PutBucket(request);
-                    MessageBox.Show("Bucket Added.");
+                    MessageBox.Show($"Bucket '{bucketName}' Added.");
                     LoadData();
                     bNameTBox.Text = "";
                 }

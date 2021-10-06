@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\farza\Desktop\COMP306_Workspace - Copy\AWSDesktopGUI\DesktopAWSGUI\DesktopAWSGUI\obj\Debug\
+C:\Users\farza\Desktop\COMP306_Workspace\AWSDesktopGUI\DesktopAWSGUI\DesktopAWSGUI\obj\Debug\
 DesktopAWSGUI
 none
 false
 DEBUG;TRACE
-C:\Users\farza\Desktop\COMP306_Workspace - Copy\AWSDesktopGUI\DesktopAWSGUI\DesktopAWSGUI\App.xaml
+C:\Users\farza\Desktop\COMP306_Workspace\AWSDesktopGUI\DesktopAWSGUI\DesktopAWSGUI\App.xaml
 4333698308
 
 21-1508703467
-171924963384
+171207401953
 MainWindow.xaml;Views\CreateBucketView.xaml;Views\HomeView.xaml;Views\OperateBucketView.xaml;
 
 False
