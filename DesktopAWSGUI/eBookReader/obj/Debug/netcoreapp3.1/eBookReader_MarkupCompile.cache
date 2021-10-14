@@ -1,5 +1,5 @@
 ﻿eBookReader
-1.0.0.0
+
 
 winexe
 C#
@@ -12,9 +12,9 @@ TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
 C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\eBookReader\App.xaml
 3-338989228
 
-16-1705193537
+14-81291362
 192-1533232326
 MainWindow.xaml;Views\LoginView.xaml;Views\ProfileView.xaml;
 
-True
+False
 
