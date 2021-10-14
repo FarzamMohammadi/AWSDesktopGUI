@@ -9,6 +9,9 @@
         <DataTemplate DataType="{x:Type viewmodels:LoginViewModel}">
             <views:LoginView />
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:SignUpViewModel}">
+            <views:SignUpView />
+        </DataTemplate>
         <DataTemplate DataType="{x:Type viewmodels:ProfileViewModel}">
             <views:ProfileView />
         </DataTemplate>

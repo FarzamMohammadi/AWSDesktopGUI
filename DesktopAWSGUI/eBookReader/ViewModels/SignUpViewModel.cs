@@ -6,17 +6,17 @@ using System.Windows.Input;
 
 namespace eBookReader.ViewModels
 {
-    public class LoginViewModel : BaseViewModel, IPageViewModel
+    class SignUpViewModel : BaseViewModel, IPageViewModel
     {
-        private ICommand _goToSignUp;
+        private ICommand _goToLogin;
 
-        public ICommand GoToSignUp
+        public ICommand GoToLogin
         {
             get
             {
-                return _goToSignUp ?? (_goToSignUp = new RelayCommand(x =>
+                return _goToLogin ?? (_goToLogin = new RelayCommand(x =>
                 {
-                    Mediator.Notify("GoToSignUpScreen", "");
+                    Mediator.Notify("GoToLoginScreen", "");
                 }));
             }
         }

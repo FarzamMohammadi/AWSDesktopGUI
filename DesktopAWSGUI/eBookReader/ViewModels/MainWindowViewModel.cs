@@ -57,12 +57,12 @@ namespace eBookReader.ViewModels
         {
             // Add available pages and set page
             PageViewModels.Add(new LoginViewModel());
-            PageViewModels.Add(new ProfileViewModel());
+            PageViewModels.Add(new SignUpViewModel());
 
             CurrentPageViewModel = PageViewModels[0];
 
             Mediator.Subscribe("GoTo1Screen", OnGo1Screen);
-            Mediator.Subscribe("GoTo2Screen", OnGo2Screen);
+            Mediator.Subscribe("GoToSignUpScreen", OnGo2Screen);
         }
     }
 }

@@ -6,10 +6,64 @@
              xmlns:local="clr-namespace:eBookReader.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <Grid Background="White">
         <Button
-            Content="Go to View 1"
-            Command="{Binding GoTo2}"
-            Width="90" Height="30" />
+            Content="Sign Up"
+            Command="{Binding GoToSignUp}" Margin="522,287,82,60" />
+        <TextBox x:Name="emailTBox" HorizontalAlignment="Left" Margin="142,48,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="576" Height="53" FontSize="20" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Visibility="Visible">
+            <TextBox.Style>
+                <Style TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+                    <Style.Resources>
+                        <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                            <VisualBrush.Visual>
+                                <Label Content="example@gmail.com" Foreground="Gray" FontSize="20"/>
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                    </Style.Resources>
+                    <Style.Triggers>
+                        <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                            <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                        </Trigger>
+                        <Trigger Property="Text" Value="{x:Null}">
+                            <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused" Value="True">
+                            <Setter Property="Background" Value="White" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBox.Style>
+        </TextBox>
+        <CheckBox x:Name="rememberCBox" Content="Remember Me" HorizontalAlignment="Left" Margin="40,249,0,0" VerticalAlignment="Top" FontSize="20" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" UseLayoutRounding="False"/>
+        <TextBox x:Name="passwordTBox" HorizontalAlignment="Left" Margin="142,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="576" Height="53" FontSize="20" HorizontalContentAlignment="Left" VerticalContentAlignment="Center">
+            <TextBox.Style>
+                <Style TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+                    <Style.Resources>
+                        <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                            <VisualBrush.Visual>
+                                <Label Content="*********" Foreground="Gray" FontSize="20"/>
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                    </Style.Resources>
+                    <Style.Triggers>
+                        <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                            <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                        </Trigger>
+                        <Trigger Property="Text" Value="{x:Null}">
+                            <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused" Value="True">
+                            <Setter Property="Background" Value="White" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBox.Style>
+        </TextBox>
+        <Label Content="Email:" HorizontalAlignment="Left" Margin="40,56,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="Password:" HorizontalAlignment="Left" Margin="40,127,0,0" VerticalAlignment="Top" FontSize="20"/>
+
+        <!--<Button
+            Content="Login"
+            Command="{Binding GoTo2}" Margin="487,318,150,66" />-->
     </Grid>
 </UserControl>

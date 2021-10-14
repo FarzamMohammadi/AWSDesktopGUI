@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
 C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\eBookReader\App.xaml
-3-338989228
+4-953640394
 
-14-81291362
+16-1620054292
 192-1533232326
-MainWindow.xaml;Views\LoginView.xaml;Views\ProfileView.xaml;
+MainWindow.xaml;Views\LoginView.xaml;Views\ProfileView.xaml;Views\SignUpView.xaml;
 
 False
 

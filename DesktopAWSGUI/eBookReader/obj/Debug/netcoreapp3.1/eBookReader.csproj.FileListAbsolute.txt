@@ -24,3 +24,5 @@ C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\eBookReader\obj\De
 C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\eBookReader\obj\Debug\netcoreapp3.1\eBookReader.dll
 C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\eBookReader\obj\Debug\netcoreapp3.1\eBookReader.pdb
 C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\eBookReader\obj\Debug\netcoreapp3.1\eBookReader.genruntimeconfig.cache
+C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\eBookReader\obj\Debug\netcoreapp3.1\Views\SignUpView.g.cs
+C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\eBookReader\obj\Debug\netcoreapp3.1\Views\SignUpView.baml
