@@ -26,3 +26,15 @@ C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\eBookReader\obj\De
 C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\eBookReader\obj\Debug\netcoreapp3.1\eBookReader.genruntimeconfig.cache
 C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\eBookReader\obj\Debug\netcoreapp3.1\Views\SignUpView.g.cs
 C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\eBookReader\obj\Debug\netcoreapp3.1\Views\SignUpView.baml
+C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\eBookReader\bin\Debug\netcoreapp3.1\AWSSDK.Core.dll
+C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\eBookReader\bin\Debug\netcoreapp3.1\AWSSDK.DynamoDBv2.dll
+C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\eBookReader\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\eBookReader\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\eBookReader\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\eBookReader\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Json.dll
+C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\eBookReader\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\eBookReader\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Physical.dll
+C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\eBookReader\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileSystemGlobbing.dll
+C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\eBookReader\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\eBookReader\bin\Debug\netcoreapp3.1\System.Text.Json.dll
+C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\eBookReader\obj\Debug\netcoreapp3.1\eBookReader.csproj.CopyComplete
