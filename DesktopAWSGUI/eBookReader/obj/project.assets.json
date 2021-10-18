@@ -23,6 +23,18 @@
           "lib/netcoreapp3.1/AWSSDK.DynamoDBv2.dll": {}
         }
       },
+      "AWSSDK.S3/3.7.3.7": {
+        "type": "package",
+        "dependencies": {
+          "AWSSDK.Core": "[3.7.3.14, 4.0.0)"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/AWSSDK.S3.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/AWSSDK.S3.dll": {}
+        }
+      },
       "Microsoft.Extensions.Configuration/5.0.0": {
         "type": "package",
         "dependencies": {
@@ -124,6 +136,64 @@
           "lib/netcoreapp3.0/Microsoft.Extensions.Primitives.dll": {}
         }
       },
+      "Syncfusion.Compression.Base/19.3.0.45": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.1/Syncfusion.Compression.Base.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Syncfusion.Compression.Base.dll": {}
+        }
+      },
+      "Syncfusion.Licensing/19.3.0.45": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.1/Syncfusion.Licensing.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Syncfusion.Licensing.dll": {}
+        }
+      },
+      "Syncfusion.Pdf.Wpf/19.3.0.45": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Compression.Base": "19.3.0.45",
+          "Syncfusion.Licensing": "19.3.0.45"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Syncfusion.Pdf.Base.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Syncfusion.Pdf.Base.dll": {}
+        }
+      },
+      "Syncfusion.PdfViewer.WPF/19.3.0.45": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Compression.Base": "19.3.0.45",
+          "Syncfusion.Licensing": "19.3.0.45",
+          "Syncfusion.Pdf.Wpf": "19.3.0.45",
+          "Syncfusion.Shared.WPF": "19.3.0.45"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Syncfusion.PdfViewer.WPF.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Syncfusion.PdfViewer.WPF.dll": {}
+        }
+      },
+      "Syncfusion.Shared.WPF/19.3.0.45": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Licensing": "19.3.0.45"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Syncfusion.Shared.WPF.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Syncfusion.Shared.WPF.dll": {}
+        }
+      },
       "System.Text.Json/5.0.0": {
         "type": "package",
         "compile": {
@@ -184,6 +254,33 @@
         "lib/netstandard2.0/AWSSDK.DynamoDBv2.dll",
         "lib/netstandard2.0/AWSSDK.DynamoDBv2.pdb",
         "lib/netstandard2.0/AWSSDK.DynamoDBv2.xml",
+        "tools/install.ps1",
+        "tools/uninstall.ps1"
+      ]
+    },
+    "AWSSDK.S3/3.7.3.7": {
+      "sha512": "rOAeOvQXVi4m/gVpvD2IOEP73e8zy/jgCXH/f2Jibp9wk0aZn1IJ6EFCDsQbOBIgF57n6QMVbApPnV6sjWPA6Q==",
+      "type": "package",
+      "path": "awssdk.s3/3.7.3.7",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "analyzers/dotnet/cs/AWSSDK.S3.CodeAnalysis.dll",
+        "awssdk.s3.3.7.3.7.nupkg.sha512",
+        "awssdk.s3.nuspec",
+        "lib/net35/AWSSDK.S3.dll",
+        "lib/net35/AWSSDK.S3.pdb",
+        "lib/net35/AWSSDK.S3.xml",
+        "lib/net45/AWSSDK.S3.dll",
+        "lib/net45/AWSSDK.S3.pdb",
+        "lib/net45/AWSSDK.S3.xml",
+        "lib/netcoreapp3.1/AWSSDK.S3.dll",
+        "lib/netcoreapp3.1/AWSSDK.S3.pdb",
+        "lib/netcoreapp3.1/AWSSDK.S3.xml",
+        "lib/netstandard2.0/AWSSDK.S3.dll",
+        "lib/netstandard2.0/AWSSDK.S3.pdb",
+        "lib/netstandard2.0/AWSSDK.S3.xml",
         "tools/install.ps1",
         "tools/uninstall.ps1"
       ]
@@ -352,6 +449,199 @@
         "version.txt"
       ]
     },
+    "Syncfusion.Compression.Base/19.3.0.45": {
+      "sha512": "56A2pIv29YYsZ9ohazhpD8ALNlRrIs2ZfqvXJTtqQvCHkIsGj4Wai+D41+x96ERR7LkewdauJtjU5n8cn8oPLg==",
+      "type": "package",
+      "path": "syncfusion.compression.base/19.3.0.45",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "lib/net20/Syncfusion.Compression.Base.dll",
+        "lib/net20/Syncfusion.Compression.Base.xml",
+        "lib/net35/Syncfusion.Compression.Base.dll",
+        "lib/net35/Syncfusion.Compression.Base.xml",
+        "lib/net40/Syncfusion.Compression.Base.dll",
+        "lib/net40/Syncfusion.Compression.Base.xml",
+        "lib/net45/Syncfusion.Compression.Base.dll",
+        "lib/net45/Syncfusion.Compression.Base.xml",
+        "lib/net451/Syncfusion.Compression.Base.dll",
+        "lib/net451/Syncfusion.Compression.Base.xml",
+        "lib/net46/Syncfusion.Compression.Base.dll",
+        "lib/net46/Syncfusion.Compression.Base.xml",
+        "lib/net5.0/Syncfusion.Compression.Base.dll",
+        "lib/net5.0/Syncfusion.Compression.Base.xml",
+        "lib/netcoreapp3.1/Syncfusion.Compression.Base.dll",
+        "lib/netcoreapp3.1/Syncfusion.Compression.Base.xml",
+        "syncfusion.compression.base.19.3.0.45.nupkg.sha512",
+        "syncfusion.compression.base.nuspec",
+        "syncfusion_logo.png"
+      ]
+    },
+    "Syncfusion.Licensing/19.3.0.45": {
+      "sha512": "1xmsNi9yyUeB71H/hFix5kewNJ+VQp7kRZtV9vlLb6cMpHv5AfTWm3Mm7G+D1pY5KyNlNm8LJbgSjPgSARVD0A==",
+      "type": "package",
+      "path": "syncfusion.licensing/19.3.0.45",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "lib/MonoAndroid10.0/Syncfusion.Licensing.dll",
+        "lib/MonoAndroid90/Syncfusion.Licensing.dll",
+        "lib/Xamarin.Mac/Syncfusion.Licensing.dll",
+        "lib/Xamarin.iOS10/Syncfusion.Licensing.dll",
+        "lib/net20/Syncfusion.Licensing.dll",
+        "lib/net35/Syncfusion.Licensing.dll",
+        "lib/net40/Syncfusion.Licensing.dll",
+        "lib/net45/Syncfusion.Licensing.dll",
+        "lib/net451/Syncfusion.Licensing.dll",
+        "lib/net46/Syncfusion.Licensing.dll",
+        "lib/net5.0-windows10.0/Syncfusion.Licensing.dll",
+        "lib/net5.0/Syncfusion.Licensing.dll",
+        "lib/netcoreapp3.1/Syncfusion.Licensing.dll",
+        "lib/netstandard1.0/Syncfusion.Licensing.dll",
+        "lib/netstandard1.2/Syncfusion.Licensing.dll",
+        "lib/netstandard1.4/Syncfusion.Licensing.dll",
+        "lib/netstandard2.0/Syncfusion.Licensing.dll",
+        "lib/portable-win+net45+wp80+win81+wpa81/Syncfusion.Licensing.dll",
+        "lib/uap10.0/Syncfusion.Licensing.dll",
+        "syncfusion.licensing.19.3.0.45.nupkg.sha512",
+        "syncfusion.licensing.nuspec",
+        "syncfusion_logo.png"
+      ]
+    },
+    "Syncfusion.Pdf.Wpf/19.3.0.45": {
+      "sha512": "8Chl10oDa3v0ROaRUHbTLBEamDAU6Ije5gDHfcqjPWaZqNjggf9rEy9JGJ0SQffeS4PymXTT9VHLbfDeQB7fqA==",
+      "type": "package",
+      "path": "syncfusion.pdf.wpf/19.3.0.45",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "README.md",
+        "lib/net35/Syncfusion.Pdf.Base.dll",
+        "lib/net35/Syncfusion.Pdf.Base.xml",
+        "lib/net40/Syncfusion.Pdf.Base.dll",
+        "lib/net40/Syncfusion.Pdf.Base.xml",
+        "lib/net45/Syncfusion.Pdf.Base.dll",
+        "lib/net45/Syncfusion.Pdf.Base.xml",
+        "lib/net451/Syncfusion.Pdf.Base.dll",
+        "lib/net451/Syncfusion.Pdf.Base.xml",
+        "lib/net46/Syncfusion.Pdf.Base.dll",
+        "lib/net46/Syncfusion.Pdf.Base.xml",
+        "lib/net5.0-windows7.0/Syncfusion.Pdf.Base.dll",
+        "lib/net5.0-windows7.0/Syncfusion.Pdf.Base.xml",
+        "lib/netcoreapp3.1/Syncfusion.Pdf.Base.dll",
+        "lib/netcoreapp3.1/Syncfusion.Pdf.Base.xml",
+        "syncfusion.pdf.wpf.19.3.0.45.nupkg.sha512",
+        "syncfusion.pdf.wpf.nuspec",
+        "syncfusion_logo.png"
+      ]
+    },
+    "Syncfusion.PdfViewer.WPF/19.3.0.45": {
+      "sha512": "rS0ZTXmtDMdn9zep3+cku3QF5ZIr4BmozcocHEW2YAsR8KoIrf11pSWyLCZsypDJtbzYTEUCVCZGNdklOO3p5A==",
+      "type": "package",
+      "path": "syncfusion.pdfviewer.wpf/19.3.0.45",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "README.md",
+        "lib/net35/Design/Syncfusion.PdfViewer.WPF.DesignTools.dll",
+        "lib/net35/Design/Syncfusion.PdfViewer.Wpf.VisualStudio.Design.dll",
+        "lib/net35/Design/Syncfusion.PdfViewer.Wpf.dll.Design.dll",
+        "lib/net35/Syncfusion.PdfViewer.WPF.dll",
+        "lib/net35/Syncfusion.PdfViewer.WPF.xml",
+        "lib/net40/Design/Syncfusion.PdfViewer.WPF.DesignTools.dll",
+        "lib/net40/Design/Syncfusion.PdfViewer.Wpf.VisualStudio.Design.dll",
+        "lib/net40/Design/Syncfusion.PdfViewer.Wpf.dll.Design.dll",
+        "lib/net40/Syncfusion.PdfViewer.WPF.dll",
+        "lib/net40/Syncfusion.PdfViewer.WPF.xml",
+        "lib/net45/Design/Syncfusion.PdfViewer.WPF.DesignTools.dll",
+        "lib/net45/Design/Syncfusion.PdfViewer.Wpf.VisualStudio.Design.dll",
+        "lib/net45/Design/Syncfusion.PdfViewer.Wpf.dll.Design.dll",
+        "lib/net45/Syncfusion.PdfViewer.WPF.dll",
+        "lib/net45/Syncfusion.PdfViewer.WPF.xml",
+        "lib/net451/Design/Syncfusion.PdfViewer.WPF.DesignTools.dll",
+        "lib/net451/Design/Syncfusion.PdfViewer.Wpf.VisualStudio.Design.dll",
+        "lib/net451/Design/Syncfusion.PdfViewer.Wpf.dll.Design.dll",
+        "lib/net451/Syncfusion.PdfViewer.WPF.dll",
+        "lib/net451/Syncfusion.PdfViewer.WPF.xml",
+        "lib/net46/Design/Syncfusion.PdfViewer.WPF.DesignTools.dll",
+        "lib/net46/Design/Syncfusion.PdfViewer.Wpf.VisualStudio.Design.dll",
+        "lib/net46/Design/Syncfusion.PdfViewer.Wpf.dll.Design.dll",
+        "lib/net46/Syncfusion.PdfViewer.WPF.dll",
+        "lib/net46/Syncfusion.PdfViewer.WPF.xml",
+        "lib/net5.0-windows7.0/Design/Syncfusion.PdfViewer.WPF.DesignTools.dll",
+        "lib/net5.0-windows7.0/Syncfusion.PdfViewer.WPF.dll",
+        "lib/net5.0-windows7.0/Syncfusion.PdfViewer.WPF.xml",
+        "lib/netcoreapp3.1/Design/Syncfusion.PdfViewer.WPF.DesignTools.dll",
+        "lib/netcoreapp3.1/Syncfusion.PdfViewer.WPF.dll",
+        "lib/netcoreapp3.1/Syncfusion.PdfViewer.WPF.xml",
+        "syncfusion.pdfviewer.wpf.19.3.0.45.nupkg.sha512",
+        "syncfusion.pdfviewer.wpf.nuspec",
+        "syncfusion_logo.png",
+        "tools/VisualStudioToolsManifest.xml"
+      ]
+    },
+    "Syncfusion.Shared.WPF/19.3.0.45": {
+      "sha512": "v83kcd+TMmcltawVbpnl/EYubYbc20jyd3zxdfONcMiVqcxr/9PHlny4J0SiPfZ7++wlL2Qcl+xYfHLnRG6nRA==",
+      "type": "package",
+      "path": "syncfusion.shared.wpf/19.3.0.45",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "README.md",
+        "lib/net35/Design/Syncfusion.Design.Wpf.dll",
+        "lib/net35/Design/Syncfusion.Shared.WPF.DesignTools.dll",
+        "lib/net35/Design/Syncfusion.Shared.Wpf.Expression.Design.dll",
+        "lib/net35/Design/Syncfusion.Shared.Wpf.VisualStudio.Design.dll",
+        "lib/net35/Design/Syncfusion.Shared.Wpf.dll.Design.dll",
+        "lib/net35/Syncfusion.Shared.WPF.dll",
+        "lib/net35/Syncfusion.Shared.WPF.xml",
+        "lib/net40/Design/Syncfusion.Design.Wpf.dll",
+        "lib/net40/Design/Syncfusion.Shared.WPF.DesignTools.dll",
+        "lib/net40/Design/Syncfusion.Shared.Wpf.Expression.Design.dll",
+        "lib/net40/Design/Syncfusion.Shared.Wpf.VisualStudio.Design.dll",
+        "lib/net40/Design/Syncfusion.Shared.Wpf.dll.Design.dll",
+        "lib/net40/Syncfusion.Shared.WPF.dll",
+        "lib/net40/Syncfusion.Shared.WPF.xml",
+        "lib/net45/Design/Syncfusion.Design.Wpf.dll",
+        "lib/net45/Design/Syncfusion.Shared.WPF.DesignTools.dll",
+        "lib/net45/Design/Syncfusion.Shared.Wpf.Expression.Design.dll",
+        "lib/net45/Design/Syncfusion.Shared.Wpf.VisualStudio.Design.dll",
+        "lib/net45/Design/Syncfusion.Shared.Wpf.dll.Design.dll",
+        "lib/net45/Syncfusion.Shared.WPF.dll",
+        "lib/net45/Syncfusion.Shared.WPF.xml",
+        "lib/net451/Design/Syncfusion.Design.Wpf.dll",
+        "lib/net451/Design/Syncfusion.Shared.WPF.DesignTools.dll",
+        "lib/net451/Design/Syncfusion.Shared.Wpf.Expression.Design.dll",
+        "lib/net451/Design/Syncfusion.Shared.Wpf.VisualStudio.Design.dll",
+        "lib/net451/Design/Syncfusion.Shared.Wpf.dll.Design.dll",
+        "lib/net451/Syncfusion.Shared.WPF.dll",
+        "lib/net451/Syncfusion.Shared.WPF.xml",
+        "lib/net46/Design/Syncfusion.Design.Wpf.dll",
+        "lib/net46/Design/Syncfusion.Shared.WPF.DesignTools.dll",
+        "lib/net46/Design/Syncfusion.Shared.Wpf.Expression.Design.dll",
+        "lib/net46/Design/Syncfusion.Shared.Wpf.VisualStudio.Design.dll",
+        "lib/net46/Design/Syncfusion.Shared.Wpf.dll.Design.dll",
+        "lib/net46/Syncfusion.Shared.WPF.dll",
+        "lib/net46/Syncfusion.Shared.WPF.xml",
+        "lib/net5.0-windows7.0/Design/Syncfusion.Shared.WPF.DesignTools.dll",
+        "lib/net5.0-windows7.0/Syncfusion.Shared.WPF.dll",
+        "lib/net5.0-windows7.0/Syncfusion.Shared.WPF.xml",
+        "lib/netcoreapp3.1/Design/Syncfusion.Shared.WPF.DesignTools.dll",
+        "lib/netcoreapp3.1/Syncfusion.Shared.WPF.dll",
+        "lib/netcoreapp3.1/Syncfusion.Shared.WPF.xml",
+        "syncfusion.shared.wpf.19.3.0.45.nupkg.sha512",
+        "syncfusion.shared.wpf.nuspec",
+        "syncfusion_logo.png",
+        "tools/VisualStudioToolsManifest.xml"
+      ]
+    },
     "System.Text.Json/5.0.0": {
       "sha512": "+luxMQNZ2WqeffBU7Ml6njIvxc8169NW2oU+ygNudXQGZiarjE7DOtN7bILiQjTZjkmwwRZGTtLzmdrSI/Ustw==",
       "type": "package",
@@ -379,9 +669,11 @@
     ".NETCoreApp,Version=v3.1": [
       "AWSSDK.Core >= 3.7.3.22",
       "AWSSDK.DynamoDBv2 >= 3.7.0.83",
+      "AWSSDK.S3 >= 3.7.3.7",
       "Microsoft.Extensions.Configuration >= 5.0.0",
       "Microsoft.Extensions.Configuration.FileExtensions >= 5.0.0",
-      "Microsoft.Extensions.Configuration.Json >= 5.0.0"
+      "Microsoft.Extensions.Configuration.Json >= 5.0.0",
+      "Syncfusion.PdfViewer.WPF >= 19.3.0.45"
     ]
   },
   "packageFolders": {
@@ -431,6 +723,10 @@
             "target": "Package",
             "version": "[3.7.0.83, )"
           },
+          "AWSSDK.S3": {
+            "target": "Package",
+            "version": "[3.7.3.7, )"
+          },
           "Microsoft.Extensions.Configuration": {
             "target": "Package",
             "version": "[5.0.0, )"
@@ -442,6 +738,10 @@
           "Microsoft.Extensions.Configuration.Json": {
             "target": "Package",
             "version": "[5.0.0, )"
+          },
+          "Syncfusion.PdfViewer.WPF": {
+            "target": "Package",
+            "version": "[19.3.0.45, )"
           }
         },
         "imports": [

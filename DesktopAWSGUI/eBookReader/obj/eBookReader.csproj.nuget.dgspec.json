@@ -48,6 +48,10 @@
               "target": "Package",
               "version": "[3.7.0.83, )"
             },
+            "AWSSDK.S3": {
+              "target": "Package",
+              "version": "[3.7.3.7, )"
+            },
             "Microsoft.Extensions.Configuration": {
               "target": "Package",
               "version": "[5.0.0, )"
@@ -59,6 +63,10 @@
             "Microsoft.Extensions.Configuration.Json": {
               "target": "Package",
               "version": "[5.0.0, )"
+            },
+            "Syncfusion.PdfViewer.WPF": {
+              "target": "Package",
+              "version": "[19.3.0.45, )"
             }
           },
           "imports": [

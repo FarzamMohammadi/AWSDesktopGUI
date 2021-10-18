@@ -16,7 +16,10 @@
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgSyncfusion_Shared_WPF Condition=" '$(PkgSyncfusion_Shared_WPF)' == '' ">C:\Users\farza\.nuget\packages\syncfusion.shared.wpf\19.3.0.45</PkgSyncfusion_Shared_WPF>
+    <PkgSyncfusion_PdfViewer_WPF Condition=" '$(PkgSyncfusion_PdfViewer_WPF)' == '' ">C:\Users\farza\.nuget\packages\syncfusion.pdfviewer.wpf\19.3.0.45</PkgSyncfusion_PdfViewer_WPF>
     <PkgAWSSDK_Core Condition=" '$(PkgAWSSDK_Core)' == '' ">C:\Users\farza\.nuget\packages\awssdk.core\3.7.3.22</PkgAWSSDK_Core>
+    <PkgAWSSDK_S3 Condition=" '$(PkgAWSSDK_S3)' == '' ">C:\Users\farza\.nuget\packages\awssdk.s3\3.7.3.7</PkgAWSSDK_S3>
     <PkgAWSSDK_DynamoDBv2 Condition=" '$(PkgAWSSDK_DynamoDBv2)' == '' ">C:\Users\farza\.nuget\packages\awssdk.dynamodbv2\3.7.0.83</PkgAWSSDK_DynamoDBv2>
   </PropertyGroup>
 </Project>

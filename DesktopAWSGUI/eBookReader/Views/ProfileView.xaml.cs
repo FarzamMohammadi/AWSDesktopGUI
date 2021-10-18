@@ -27,20 +27,43 @@ namespace eBookReader.Views
             LoadUserBookShelf();
         }
 
-        private void LoadUserBookShelf()
+        private async void LoadUserBookShelf()
         {
             List<string> books = User.GetBooks();
+            List<Book> booksToShowOnShelf = new List<Book>();
             
-            /*foreach(string book in books)
+            foreach(string book in books)
             {
-                Book newBook = new Book()
-            }*/
+                Book newBook = new Book(book);
+                await newBook.GetAuthor();
+                booksToShowOnShelf.Add(newBook);
+            }
+
+            foreach(Book book in booksToShowOnShelf)
+            {
+                BooksDataGrid.Items.Add(book);
+            }
+          
         }
 
         private void LoadUsername()
         {
             string username = User.GetUsername();
             userNameLbl.Content = username;
+        }
+
+        private void Row_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                Book book = (Book)BooksDataGrid.SelectedItem;
+                PDFView pdfViewer = new PDFView(book);
+                pdfViewer.Show();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
         }
     }
 }

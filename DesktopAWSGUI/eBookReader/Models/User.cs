@@ -33,15 +33,14 @@ namespace eBookReader.Models
 
         public async Task<string> LoginAsync()
         {
+            // Goes through the "Users" database and Sets user as logged in if the email and password match the database credentials
             string scanUser = "";
             string scanPass = "";
-            string index = "";
             List<string> scanBooks = null;
 
             Client newClient = new Client();
             AmazonDynamoDBClient client = new AmazonDynamoDBClient(newClient.AccessKeyID, newClient.SecretKey, newClient.Region);
             string tableName = "Users";
-            Table table = Table.LoadTable(client, tableName);
             var request = new ScanRequest
             {
                 TableName = tableName
@@ -58,11 +57,6 @@ namespace eBookReader.Models
                 {
                     var scanKey = item.Key;
                     var scanValue = item.Value;
-
-                    if (scanKey == "Id" && scanValue.N.ToString() != index)
-                    {
-                        
-                    }
 
                     if (scanKey == "Username")
                     {
@@ -94,6 +88,7 @@ namespace eBookReader.Models
 
         private void CheckNewItem(string scanUser, string scanPass, List<String> scanBooks)
         {
+            //If username and password entered by user match sets the user books and user status as logged in 
             if (Username == scanUser && Password == scanPass)
             {
                 Books = scanBooks;

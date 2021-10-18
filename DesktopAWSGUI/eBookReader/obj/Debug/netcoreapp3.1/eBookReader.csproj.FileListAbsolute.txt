@@ -37,3 +37,11 @@ C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\eBookReader\bin\De
 C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\eBookReader\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileSystemGlobbing.dll
 C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\eBookReader\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
 C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\eBookReader\bin\Debug\netcoreapp3.1\System.Text.Json.dll
+C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\eBookReader\bin\Debug\netcoreapp3.1\Syncfusion.Compression.Base.dll
+C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\eBookReader\bin\Debug\netcoreapp3.1\Syncfusion.Licensing.dll
+C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\eBookReader\bin\Debug\netcoreapp3.1\Syncfusion.Pdf.Base.dll
+C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\eBookReader\bin\Debug\netcoreapp3.1\Syncfusion.PdfViewer.WPF.dll
+C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\eBookReader\bin\Debug\netcoreapp3.1\Syncfusion.Shared.WPF.dll
+C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\eBookReader\obj\Debug\netcoreapp3.1\Views\PDFView.g.cs
+C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\eBookReader\obj\Debug\netcoreapp3.1\Views\PDFView.baml
+C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\eBookReader\bin\Debug\netcoreapp3.1\AWSSDK.S3.dll
