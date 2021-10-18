@@ -41,6 +41,8 @@ namespace eBookReader.Views
             GetObjectResponse response = await s3Client.GetObjectAsync(request);
             MemoryStream _documentStream = new MemoryStream();
             response.ResponseStream.CopyTo(_documentStream);
+            pdfViewer.IsBookmarkEnabled = true;
+
             pdfViewer.Load(_documentStream);
         }
     }

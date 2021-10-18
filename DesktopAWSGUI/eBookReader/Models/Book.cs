@@ -16,9 +16,41 @@ namespace eBookReader.Models
         {
             BookName = name;
         }
-        public void SetReadDate()
+        public async void SetReadDate()
         {
-
+            Client newClientInfo = new Client();
+            AmazonDynamoDBClient client = new AmazonDynamoDBClient(newClientInfo.AccessKeyID, newClientInfo.SecretKey, newClientInfo.Region);
+            Table table = Table.LoadTable(client, "Users");
+            switch (User.Username)
+            {
+                case "farzam1@hotmail.com":
+                    var user1 = new Document();
+                    user1["Id"] = 1;
+                    user1["Username"] = "farzam1@hotmail.com";
+                    user1["Password"] = "124689";
+                    user1["BooksPurchased"] = new List<string> { "Lab 1", "Lab 2" };
+                    user1["LastBookRead"] = BookName;
+                    await table.PutItemAsync(user1);
+                    break;
+                case "farzam2@hotmail.com":
+                    var user2 = new Document();
+                    user2["Id"] = 2;
+                    user2["Username"] = "farzam2@hotmail.com";
+                    user2["Password"] = "124689";
+                    user2["BooksPurchased"] = new List<string> { "Lab 1", "Lab 3" };
+                    user2["LastBookRead"] = BookName;
+                    await table.PutItemAsync(user2);
+                    break;
+                case "farzam3@hotmail.com":
+                    var user3 = new Document();
+                    user3["Id"] = 3;
+                    user3["Username"] = "farzam3@hotmail.com";
+                    user3["Password"] = "124689";
+                    user3["BooksPurchased"] = new List<string> { "Lab 1", "Lab 2", "Lab 3" };
+                    user3["LastBookRead"] = BookName;
+                    await table.PutItemAsync(user3);
+                    break;
+            }
         }
         public async Task<string> GetAuthor()
         {
