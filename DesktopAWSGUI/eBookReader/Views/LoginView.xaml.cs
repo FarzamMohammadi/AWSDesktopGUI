@@ -46,7 +46,7 @@ namespace eBookReader.Views
 
       
 
-            string tableName = "BookShelf";
+            string tableName = "Users";
             Client newClient = new Client();
             AmazonDynamoDBClient client = new AmazonDynamoDBClient(newClient.AccessKeyID, newClient.SecretKey, newClient.Region);
 
@@ -81,8 +81,15 @@ namespace eBookReader.Views
             try
             {
                 var response = await client.CreateTableAsync(request);
-                var res = await client.DescribeTableAsync(new DescribeTableRequest { TableName = "BookShelf" });
-                if (res.Table.TableName == "BookShelf") {
+                var res = await client.DescribeTableAsync(new DescribeTableRequest { TableName = "Users" });
+                while (res.Table.TableStatus != "Active")
+                {
+                    // Wait for Table to be created before loading data
+                    System.Threading.Thread.Sleep(1000);
+                    res = await client.DescribeTableAsync(new DescribeTableRequest { TableName = "Users" });
+                }
+                if (res.Table.TableStatus == "Active")
+                {
                     LoadTableData(client);
                 }
             }              
@@ -90,38 +97,34 @@ namespace eBookReader.Views
             {
                 LoadTableData(client);
             }
-
-
-
-
         }
 
         private static async void LoadTableData(AmazonDynamoDBClient client)
         {
-            Amazon.DynamoDBv2.DocumentModel.Table table = Amazon.DynamoDBv2.DocumentModel.Table.LoadTable(client, "BookShelf");
+            Amazon.DynamoDBv2.DocumentModel.Table table = Amazon.DynamoDBv2.DocumentModel.Table.LoadTable(client, "Users");
             
             var user1 = new Document();
             user1["Id"] = 1;
             user1["Username"] = "farzam1@hotmail.com";
             user1["Password"] = "124689";
-            user1["BooksPurchased"] = new List<string> { "Book 1", "Book 2" };
+            user1["BooksPurchased"] = new List<string> { "Lab 1", "Lab 2" };
 
             var user2 = new Document();
             user2["Id"] = 2;
             user2["Username"] = "farzam2@hotmail.com";
             user2["Password"] = "124689";
-            user2["BooksPurchased"] = new List<string> { "Book 1", "Book 3" };
+            user2["BooksPurchased"] = new List<string> { "Lab 1", "Lab 3" };
 
             var user3 = new Document();
             user3["Id"] = 3;
             user3["Username"] = "farzam3@hotmail.com";
             user3["Password"] = "124689";
-            user3["BooksPurchased"] = new List<string> { "Book 1", "Book 2", "Book 3" };
+            user3["BooksPurchased"] = new List<string> { "Lab 1", "Lab 2", "Lab 3" };
 
             await table.PutItemAsync(user1);
             await table.PutItemAsync(user2);
             await table.PutItemAsync(user3);
-            MessageBox.Show("Table 'Bookshelf' Created and Credentials Loaded.");
+            MessageBox.Show("Table 'Users' Created and Credentials Loaded.");
         }
 
         private async void loginBtn_Click(object sender, RoutedEventArgs e)
@@ -133,12 +136,11 @@ namespace eBookReader.Views
             var task = await user.LoginAsync();
             string loginResponse = task;
             bool login = user.LoggedIn;
-           
-            
+
             if (login == true)
             {
                 MessageBox.Show("Login Succesful.");
-                Mediator.Notify("GoToSignUpScreen", "");
+                Mediator.Notify("GoToProfileView", "");
             }
             else
             {

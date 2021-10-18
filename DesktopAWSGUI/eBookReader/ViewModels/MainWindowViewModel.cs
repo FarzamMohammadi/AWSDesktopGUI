@@ -43,14 +43,18 @@ namespace eBookReader.ViewModels
                 .FirstOrDefault(vm => vm == viewModel);
         }
 
-        private void OnGo1Screen(object obj)
+        private void OnGo2MainScreen(object obj)
         {
             ChangeViewModel(PageViewModels[0]);
         }
 
-        private void OnGo2Screen(object obj)
+        private void OnGo2SignUpScreen(object obj)
         {
             ChangeViewModel(PageViewModels[1]);
+        }
+        private void OnGo2ProfileScreen(object obj)
+        {
+            ChangeViewModel(PageViewModels[2]);
         }
 
         public MainWindowViewModel()
@@ -58,11 +62,13 @@ namespace eBookReader.ViewModels
             // Add available pages and set page
             PageViewModels.Add(new LoginViewModel());
             PageViewModels.Add(new SignUpViewModel());
+            PageViewModels.Add(new ProfileViewModel());
 
             CurrentPageViewModel = PageViewModels[0];
 
-            Mediator.Subscribe("GoTo1Screen", OnGo1Screen);
-            Mediator.Subscribe("GoToSignUpScreen", OnGo2Screen);
+            Mediator.Subscribe("GoTo1Screen", OnGo2MainScreen);
+            Mediator.Subscribe("GoToSignUpScreen", OnGo2SignUpScreen);
+            Mediator.Subscribe("GoToProfileView", OnGo2ProfileScreen);
         }
     }
 }

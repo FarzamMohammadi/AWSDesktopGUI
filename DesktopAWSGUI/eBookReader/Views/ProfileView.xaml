@@ -7,8 +7,14 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="White">
-        <Label Content="Hello" HorizontalAlignment="Center" VerticalAlignment="Top" Width="800" Height="43" Background="#FF418FFF" FontSize="20"/>
-        <Label x:Name="userNameLbl" Content="Hello" HorizontalAlignment="Left" VerticalAlignment="Top" Width="301" Height="43" Background="#FF418FFF" FontSize="20" Margin="62,0,0,0"/>
+        <Label Content="    Hello" HorizontalAlignment="Center" VerticalAlignment="Top" Width="800" Height="43" Background="#FF418FFF" FontSize="20"/>
+        <Label x:Name="userNameLbl" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="301" Height="43" Background="#FF418FFF" FontSize="20" Margin="83,0,0,0"/>
+        <DataGrid x:Name="BooksDataGrid" Margin="10,43,10,5" ItemsSource="{Binding Table}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Book Name" Binding="{Binding BookName}" Width="500"/>
+                <DataGridTextColumn Header="Author" Binding="{Binding BookAuthor}"  Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
 
     </Grid>
 </UserControl>

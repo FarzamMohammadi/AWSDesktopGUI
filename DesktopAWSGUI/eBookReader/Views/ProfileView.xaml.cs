@@ -1,4 +1,5 @@
-﻿using System;
+﻿using eBookReader.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,9 +19,28 @@ namespace eBookReader.Views
     /// </summary>
     public partial class ProfileView : UserControl
     {
+        
         public ProfileView()
         {
             InitializeComponent();
+            LoadUsername();
+            LoadUserBookShelf();
+        }
+
+        private void LoadUserBookShelf()
+        {
+            List<string> books = User.GetBooks();
+            
+            /*foreach(string book in books)
+            {
+                Book newBook = new Book()
+            }*/
+        }
+
+        private void LoadUsername()
+        {
+            string username = User.GetUsername();
+            userNameLbl.Content = username;
         }
     }
 }

@@ -15,7 +15,7 @@ namespace eBookReader.Models
         {
             AccessKeyID = "AKIA5EUHVKP3AGHIXCAC";
             SecretKey = "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";
-            Region = RegionEndpoint.GetBySystemName("us-east-1");
+            Region = RegionEndpoint.GetBySystemName("ca-central-1");
         }
     }
 }

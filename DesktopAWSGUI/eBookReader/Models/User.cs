@@ -9,14 +9,22 @@ using System.Threading.Tasks;
 
 namespace eBookReader.Models
 {
-    class User
+    public class User
     {
-        string Username { get; set; }
-        string Password { get; set; }
+        public static string Username { get; set; }
+        public string Password { get; set; }
         public bool LoggedIn { get; set; }
-        public List<String> Books { get; set; }
+        public static List<String> Books { get; set; }
 
-        
+        public static string GetUsername()
+        {
+            return Username;
+        }
+        public static List<String> GetBooks()
+        {
+            return Books;
+        }
+
         public User(string username, string password)
         {
             Username = username;
@@ -32,7 +40,7 @@ namespace eBookReader.Models
 
             Client newClient = new Client();
             AmazonDynamoDBClient client = new AmazonDynamoDBClient(newClient.AccessKeyID, newClient.SecretKey, newClient.Region);
-            string tableName = "BookShelf";
+            string tableName = "Users";
             Table table = Table.LoadTable(client, tableName);
             var request = new ScanRequest
             {
