@@ -6,55 +6,22 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "AWSSDK.Core/3.1.0": {
+      "AWSSDK.Core/3.7.3.22": {
         "runtime": {
-          "lib/net45/AWSSDK.Core.dll": {
-            "assemblyVersion": "3.1.0.0",
-            "fileVersion": "3.1.0.0"
+          "lib/netcoreapp3.1/AWSSDK.Core.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.7.3.22"
           }
         }
       },
-      "AWSSDK.DynamoDBv2/3.1.0": {
+      "AWSSDK.DynamoDBv2/3.7.0.83": {
         "dependencies": {
-          "AWSSDK.Core": "3.1.0"
+          "AWSSDK.Core": "3.7.3.22"
         },
         "runtime": {
-          "lib/net45/AWSSDK.DynamoDBv2.dll": {
-            "assemblyVersion": "3.1.0.0",
-            "fileVersion": "3.1.0.0"
-          }
-        }
-      },
-      "DynamoDB.SQL/3.1.0": {
-        "dependencies": {
-          "AWSSDK.DynamoDBv2": "3.1.0",
-          "FParsec": "1.0.1",
-          "FSharp.Core": "3.1.2.5"
-        },
-        "runtime": {
-          "lib/net45/DynamoDb.SQL.dll": {
-            "assemblyVersion": "3.1.0.0",
-            "fileVersion": "3.1.0.0"
-          }
-        }
-      },
-      "FParsec/1.0.1": {
-        "runtime": {
-          "lib/net40-client/FParsec.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.1.0"
-          },
-          "lib/net40-client/FParsecCS.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.1.0"
-          }
-        }
-      },
-      "FSharp.Core/3.1.2.5": {
-        "runtime": {
-          "lib/net40/FSharp.Core.dll": {
-            "assemblyVersion": "4.3.1.0",
-            "fileVersion": "4.31.30815.0"
+          "lib/netcoreapp3.1/AWSSDK.DynamoDBv2.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.7.0.83"
           }
         }
       },
@@ -162,40 +129,19 @@
     }
   },
   "libraries": {
-    "AWSSDK.Core/3.1.0": {
+    "AWSSDK.Core/3.7.3.22": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-sKeGGmtecAz/KSeYTMaeErjwwzys/PD7sRE2p8n3cv47xc3/QaDcFOHXdYoM23mt4f4FdaatCQMD0Wu8JAJK/w==",
-      "path": "awssdk.core/3.1.0",
-      "hashPath": "awssdk.core.3.1.0.nupkg.sha512"
+      "sha512": "sha512-6rLAnit68QuCQ/U2GCIZjSQ6XUMSKZ691IJ6Zl9Wnn4Z0lmkfZKTNxCQV4tj2FjooH5bSlxwAIp7dnlx2OvYYw==",
+      "path": "awssdk.core/3.7.3.22",
+      "hashPath": "awssdk.core.3.7.3.22.nupkg.sha512"
     },
-    "AWSSDK.DynamoDBv2/3.1.0": {
+    "AWSSDK.DynamoDBv2/3.7.0.83": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-fmyMYR0rquWlcaEeKaLoKo398LAiDicY5CbL8uNyq6/wqsL1id/qltnejRs84ljBwAgbUDqLvFJnjG2nAPwTHw==",
-      "path": "awssdk.dynamodbv2/3.1.0",
-      "hashPath": "awssdk.dynamodbv2.3.1.0.nupkg.sha512"
-    },
-    "DynamoDB.SQL/3.1.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-E6rnpQkgYdODognxWPVpM0QOtMAoiT4B/ERO5s5ERhKJxFWDM4kd/e1nD//ybdajjqRHS6tseAxNtTzlYVv1JQ==",
-      "path": "dynamodb.sql/3.1.0",
-      "hashPath": "dynamodb.sql.3.1.0.nupkg.sha512"
-    },
-    "FParsec/1.0.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-cvaxMYOPuSsS3A0TWKQ/LIGYZQTQENxu6WLlwq3oTbCyF+t0OS9wPoq3ewf11U09S39NgVEljVCxccdU30L4PA==",
-      "path": "fparsec/1.0.1",
-      "hashPath": "fparsec.1.0.1.nupkg.sha512"
-    },
-    "FSharp.Core/3.1.2.5": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-1V9wPWZuLgewzk01tc5wRyGrmdOI+Lc9/MsAeMXFffjjGA1Ydv5KU2mnWLz+O6TcHeACwK0M3yHbb/we233vvg==",
-      "path": "fsharp.core/3.1.2.5",
-      "hashPath": "fsharp.core.3.1.2.5.nupkg.sha512"
+      "sha512": "sha512-HA4btv+hSXriTXjobOGgJvlRjoZxzEazTKyHCcg5WIlO8N+rdLXE+yNnGdWJR+F/ophPjBPMwTM/L3mjLyIsNQ==",
+      "path": "awssdk.dynamodbv2/3.7.0.83",
+      "hashPath": "awssdk.dynamodbv2.3.7.0.83.nupkg.sha512"
     },
     "Microsoft.Extensions.Configuration/5.0.0": {
       "type": "package",

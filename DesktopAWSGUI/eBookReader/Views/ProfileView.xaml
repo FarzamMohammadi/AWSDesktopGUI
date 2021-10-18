@@ -6,10 +6,9 @@
              xmlns:local="clr-namespace:eBookReader.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <Button
-            Content="Go to View 2"
-            Command="{Binding GoTo1}"
-            Width="90" Height="30" />
+    <Grid Background="White">
+        <Label Content="Hello" HorizontalAlignment="Center" VerticalAlignment="Top" Width="800" Height="43" Background="#FF418FFF" FontSize="20"/>
+        <Label x:Name="userNameLbl" Content="Hello" HorizontalAlignment="Left" VerticalAlignment="Top" Width="301" Height="43" Background="#FF418FFF" FontSize="20" Margin="62,0,0,0"/>
+
     </Grid>
 </UserControl>
