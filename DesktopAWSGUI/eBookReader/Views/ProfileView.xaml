@@ -6,15 +6,15 @@
              xmlns:local="clr-namespace:eBookReader.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="White">
-        <Label Content="    Hello" HorizontalAlignment="Center" VerticalAlignment="Top" Width="800" Height="43" Background="#FF418FFF" FontSize="20"/>
-        <Label x:Name="userNameLbl" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="301" Height="43" Background="#FF418FFF" FontSize="20" Margin="83,0,0,0"/>
-        <DataGrid x:Name="BooksDataGrid" Margin="10,43,10,5" IsReadOnly="true"  MouseDoubleClick="Row_MouseDoubleClick">
+    <Grid Background="#FF418FFF">
+        <Label Content="    Hello" HorizontalAlignment="Left" VerticalAlignment="Top" Width="92" Height="48" FontSize="20" Margin="-4,6,0,0"/>
+        <Label x:Name="userNameLbl" HorizontalAlignment="Left" VerticalAlignment="Top" Width="301" Height="43" FontSize="20" Margin="74,6,0,0"/>
+        <DataGrid x:Name="BooksDataGrid" Margin="10,59,10,5" IsReadOnly="true"  MouseDoubleClick="Row_MouseDoubleClick" FontSize="15">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Book Name" Binding="{Binding BookName}" Width="500"/>
                 <DataGridTextColumn Header="Author" Binding="{Binding BookAuthor}"  Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
-
+        <Button Content="Back To Login" Margin="576,8,10,409" FontSize="14" Click="BackToLogin_OnClick" Background="Silver"/>
     </Grid>
 </UserControl>

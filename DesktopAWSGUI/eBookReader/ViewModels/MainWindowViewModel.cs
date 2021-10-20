@@ -66,8 +66,8 @@ namespace eBookReader.ViewModels
 
             CurrentPageViewModel = PageViewModels[0];
 
-            Mediator.Subscribe("GoTo1Screen", OnGo2MainScreen);
-            Mediator.Subscribe("GoToSignUpScreen", OnGo2SignUpScreen);
+            Mediator.Subscribe("GoToLoginView", OnGo2MainScreen);
+            Mediator.Subscribe("GoToSignUpView", OnGo2SignUpScreen);
             Mediator.Subscribe("GoToProfileView", OnGo2ProfileScreen);
         }
     }

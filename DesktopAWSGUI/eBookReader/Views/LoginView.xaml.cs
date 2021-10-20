@@ -95,6 +95,7 @@ namespace eBookReader.Views
         {
             Amazon.DynamoDBv2.DocumentModel.Table table = Amazon.DynamoDBv2.DocumentModel.Table.LoadTable(client, "Users");
             
+            //Loading table with initial defualt user credentials
             var user1 = new Document();
             user1["Id"] = 1;
             user1["Username"] = "farzam1@hotmail.com";
@@ -116,21 +117,20 @@ namespace eBookReader.Views
             await table.PutItemAsync(user1);
             await table.PutItemAsync(user2);
             await table.PutItemAsync(user3);
-            MessageBox.Show("Table 'Users' Created and Credentials Loaded.");
         }
 
         private async void loginBtn_Click(object sender, RoutedEventArgs e)
         {
             string username = emailTBox.Text;
             string password = passwordTBox.Password;
+
+            //Tries to log user in by checking whether credentials match from the "Users" class (which is in the "Models" folder)
             User user = new User(username, password);
-           
-            var task = await user.LoginAsync();
+            _ = await user.LoginAsync();
             bool login = user.LoggedIn;
 
             if (login == true)
             {
-                MessageBox.Show("Login Succesful.");
                 Mediator.Notify("GoToProfileView", "");
             }
             else

@@ -16,7 +16,7 @@ namespace eBookReader.ViewModels
             {
                 return _goToSignUpView ?? (_goToSignUpView = new RelayCommand(x =>
                 {
-                    Mediator.Notify("GoToSignUpScreen", "");
+                    Mediator.Notify("GoToSignUpView", "");
                 }));
             }
         }

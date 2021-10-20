@@ -1,4 +1,5 @@
-﻿using System;
+﻿using eBookReader.Commands;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -22,5 +23,17 @@ namespace eBookReader.Views
         {
             InitializeComponent();
         }
+        private void BackToLogin_OnClick(object sender, RoutedEventArgs e)
+        {
+            //Changes View to Login View
+            Mediator.Notify("GoToLoginView", "");
+        }
+
+        private void Register_OnClick(object sender, RoutedEventArgs e)
+        {
+            //Changes View to Login View
+            Mediator.Notify("GoToLoginView", "");
+        }
+
     }
 }

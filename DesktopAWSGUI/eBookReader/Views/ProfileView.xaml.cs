@@ -1,4 +1,5 @@
-﻿using eBookReader.Models;
+﻿using eBookReader.Commands;
+using eBookReader.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -29,6 +30,7 @@ namespace eBookReader.Views
 
         private async void LoadUserBookShelf()
         {
+            //Initial Bookshelf load
             List<string> books = User.GetBooks();
             List<Book> booksToShowOnShelf = new List<Book>();
             
@@ -44,9 +46,9 @@ namespace eBookReader.Views
                 BooksDataGrid.Items.Add(book);
             }
         }
-        //Updated Data grid view after user has selected a new book
         private async void LoadBookShelfAfterReading(Book newlyReadBook)
         {
+            //Updated Data grid view after user has selected a new book
             BooksDataGrid.Items.Clear();
             List<string> books = User.GetBooks();
             List<Book> booksToShowOnShelf = new List<Book>();
@@ -78,6 +80,7 @@ namespace eBookReader.Views
 
         private void Row_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            //On opening any book sets newest books to top
             try
             {
                 Book book = (Book)BooksDataGrid.SelectedItem;
@@ -90,6 +93,11 @@ namespace eBookReader.Views
             {
                 MessageBox.Show(exc.Message);
             }
+        }
+
+        private void BackToLogin_OnClick(object sender, RoutedEventArgs e)
+        {
+            Mediator.Notify("GoToLoginView", "");
         }
     }
 }

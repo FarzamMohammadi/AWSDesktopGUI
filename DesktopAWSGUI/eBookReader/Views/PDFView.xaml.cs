@@ -50,7 +50,9 @@ namespace eBookReader.Views
             MemoryStream _documentStream = new MemoryStream();
             response.ResponseStream.CopyTo(_documentStream);
             pdfViewer.IsBookmarkEnabled = true;
+            //Load Book
             pdfViewer.Load(_documentStream);
+            //After checking for bookmarks loads to book page
             await GetBookmarkedPage();
             pdfViewer.GoToPageAtIndex(Int32.Parse(BookPage));
 
@@ -100,6 +102,7 @@ namespace eBookReader.Views
             }
             if (BookPage == null)
             {
+                //If no bookmark exists for this user and this book returns 1 the number of page to load
                 BookPage = "1";
             }
         }

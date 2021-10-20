@@ -9,8 +9,8 @@
     <Grid Background="White">
         <Button
             Content="Sign Up"
-            Command="{Binding GoToSignUpView}" Margin="489,287,115,60" FontSize="20" />
-        <TextBox x:Name="emailTBox" HorizontalAlignment="Left" Margin="142,48,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="576" Height="53" FontSize="20" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Visibility="Visible">
+            Command="{Binding GoToSignUpView}" Margin="522,254,82,93" FontSize="20" />
+        <TextBox x:Name="emailTBox" HorizontalAlignment="Left" Margin="142,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="576" Height="53" FontSize="20" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Visibility="Visible">
             <TextBox.Style>
                 <Style TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib">
                     <Style.Resources>
@@ -34,12 +34,22 @@
                 </Style>
             </TextBox.Style>
         </TextBox>
-        <CheckBox x:Name="rememberCBox" Content="Remember Me" HorizontalAlignment="Left" Margin="115,225,0,0" VerticalAlignment="Top" FontSize="20" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" UseLayoutRounding="False"/>
-        <PasswordBox x:Name="passwordTBox" HorizontalAlignment="Left" Margin="142,119,0,0" VerticalAlignment="Top" Width="576" Height="53" FontSize="20" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" />
-        <Label Content="Email:" HorizontalAlignment="Left" Margin="40,56,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <Label Content="Password:" HorizontalAlignment="Left" Margin="40,127,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <PasswordBox x:Name="passwordTBox" HorizontalAlignment="Left" Margin="142,151,0,0" VerticalAlignment="Top" Width="576" Height="53" FontSize="20" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" />
+        <Label Content="Email:" HorizontalAlignment="Left" Margin="40,88,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="Password:" HorizontalAlignment="Left" Margin="40,159,0,0" VerticalAlignment="Top" FontSize="20"/>
         <Button x:Name="loginBtn"
             Content="Log In"
-            Margin="115,287,489,60" FontSize="20" Click="loginBtn_Click" />
+            Margin="142,246,462,101" FontSize="20" Click="loginBtn_Click" />
+        <Label Content="Login Page" Margin="0,0,0,392" FontSize="30" HorizontalContentAlignment="Center">
+            <Label.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FF6EBDF3" Offset="1"/>
+                </LinearGradientBrush>
+            </Label.Background>
+        </Label>
+        <Label Margin="0,392,0,0" FontSize="13" HorizontalContentAlignment="Left" Background="#FFEC2828" Foreground="White" FontStyle="Italic">
+            <TextBlock> AWS integrated eBook Reader<LineBreak/>Programmed by: Farzam Mohammadi</TextBlock>
+        </Label>
     </Grid>
 </UserControl>
