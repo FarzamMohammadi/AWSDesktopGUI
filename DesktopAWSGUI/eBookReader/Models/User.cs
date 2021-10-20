@@ -49,7 +49,7 @@ namespace eBookReader.Models
             var response = await client.ScanAsync(request);
             var result = response.Items;
 
-          
+          //Checks each entry to make sure all user credentials match
             for (int i = 0; i < result.Count; i++)
             {
                 var items = result[i];

@@ -37,15 +37,6 @@ namespace eBookReader.Views
         private static async void LoadCredentials()
         {
             // AWS Client login
-            var builder = new ConfigurationBuilder()
-                               .SetBasePath(Directory.GetCurrentDirectory())
-                               .AddJsonFile("AppSettings.json", optional: true, reloadOnChange: true);
-
-            /*  var accessKeyID = builder.Build().GetSection("AWSCredentials").GetSection("AccesskeyID").Value;
-              var secretKey = builder.Build().GetSection("AWSCredentials").GetSection("Secretaccesskey").Value;*/
-
-      
-
             string tableName = "Users";
             Client newClient = new Client();
             AmazonDynamoDBClient client = new AmazonDynamoDBClient(newClient.AccessKeyID, newClient.SecretKey, newClient.Region);
@@ -90,6 +81,7 @@ namespace eBookReader.Views
                 }
                 if (res.Table.TableStatus == "Active")
                 {
+                    //if table exists already just load data in case it is not there
                     LoadTableData(client);
                 }
             }              
@@ -134,7 +126,6 @@ namespace eBookReader.Views
             User user = new User(username, password);
            
             var task = await user.LoginAsync();
-            string loginResponse = task;
             bool login = user.LoggedIn;
 
             if (login == true)
