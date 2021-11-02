@@ -39,6 +39,20 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "AWSSDK.Core": {
+              "target": "Package",
+              "version": "[3.7.3.29, )"
+            },
+            "AWSSDK.DynamoDBv2": {
+              "target": "Package",
+              "version": "[3.7.0.90, )"
+            },
+            "AWSSDK.S3": {
+              "target": "Package",
+              "version": "[3.7.3.22, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

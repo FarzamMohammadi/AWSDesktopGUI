@@ -31,6 +31,9 @@
     ".NETCoreApp,Version=v3.1": {
       "TheCoolMovieApp/1.0.0": {
         "dependencies": {
+          "AWSSDK.Core": "3.7.3.29",
+          "AWSSDK.DynamoDBv2": "3.7.0.90",
+          "AWSSDK.S3": "3.7.3.22",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "3.1.0.0",
@@ -319,6 +322,45 @@
         },
         "compile": {
           "TheCoolMovieApp.dll": {}
+        }
+      },
+      "AWSSDK.Core/3.7.3.29": {
+        "runtime": {
+          "lib/netcoreapp3.1/AWSSDK.Core.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.7.3.29"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/AWSSDK.Core.dll": {}
+        }
+      },
+      "AWSSDK.DynamoDBv2/3.7.0.90": {
+        "dependencies": {
+          "AWSSDK.Core": "3.7.3.29"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/AWSSDK.DynamoDBv2.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.7.0.90"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/AWSSDK.DynamoDBv2.dll": {}
+        }
+      },
+      "AWSSDK.S3/3.7.3.22": {
+        "dependencies": {
+          "AWSSDK.Core": "3.7.3.29"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/AWSSDK.S3.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.7.3.22"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/AWSSDK.S3.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/3.1.0.0": {
@@ -2020,6 +2062,27 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "AWSSDK.Core/3.7.3.29": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-1SpqCIGnNeSQSWfkxvMMuVWuPXKBXD5RMM1g0Puy/eYEncMFL318qZW8yAmzXpRzOnqn+uVpCQ4YzU29eGSTPg==",
+      "path": "awssdk.core/3.7.3.29",
+      "hashPath": "awssdk.core.3.7.3.29.nupkg.sha512"
+    },
+    "AWSSDK.DynamoDBv2/3.7.0.90": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3ouQJ8WB6Vac6OiK7KmrqzAcv6EbG4u1mUkMXVvCAA+YNf2q7auIiu1ZYv8dRSGDjpntZ6mAZtUpdBwyCsoh+g==",
+      "path": "awssdk.dynamodbv2/3.7.0.90",
+      "hashPath": "awssdk.dynamodbv2.3.7.0.90.nupkg.sha512"
+    },
+    "AWSSDK.S3/3.7.3.22": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-MILN1g3fZKngyUn6GXG9ABkAAH+bqB4LU6/HJTgghf1HKH0rbbxvn7wz/4mv+kCXUGGsLM+79RSW2ZyYj/iIIg==",
+      "path": "awssdk.s3/3.7.3.22",
+      "hashPath": "awssdk.s3.3.7.3.22.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Antiforgery/3.1.0.0": {
       "type": "referenceassembly",

@@ -1,1 +1,26 @@
-﻿
+﻿@model TheCoolMovieApp.Models.UserModel
+@{ if (UserModel.LoggedIn == false)
+    {
+
+        @using (Html.BeginForm("Register", "UserAuthentication", FormMethod.Post))
+        {
+            @Html.Label("First Name:")
+            @Html.TextBoxFor(model => model.FirstName)
+            @Html.ValidationMessageFor(model => model.FirstName)
+            @Html.Label("Last Name:")
+            @Html.TextBoxFor(model => model.LastName)
+            @Html.ValidationMessageFor(model => model.LastName)
+            @Html.Label("Email:")
+            @Html.TextBoxFor(model => model.Email)
+            @Html.ValidationMessageFor(model => model.Email)
+            @Html.Label("Password:")
+            @Html.TextBoxFor(model => model.Password)
+            @Html.ValidationMessageFor(model => model.Password)
+            <button type="submit">Register</button>
+        }
+    }
+    else
+    {
+        <h3> You are aready logged in!</h3>
+    }
+}

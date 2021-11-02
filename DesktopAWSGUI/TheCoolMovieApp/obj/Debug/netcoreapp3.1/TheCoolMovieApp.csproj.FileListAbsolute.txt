@@ -38,3 +38,7 @@ C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\TheCoolMovieApp\ob
 C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\TheCoolMovieApp\obj\Debug\netcoreapp3.1\TheCoolMovieApp.csproj.CopyComplete
 C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\TheCoolMovieApp\obj\Debug\netcoreapp3.1\Razor\Views\UserAuthentication\Login.cshtml.g.cs
 C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\TheCoolMovieApp\obj\Debug\netcoreapp3.1\Razor\Views\UserAuthentication\SignUp.cshtml.g.cs
+C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\TheCoolMovieApp\obj\Debug\netcoreapp3.1\Razor\Views\UserAuthentication\Error.cshtml.g.cs
+C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\TheCoolMovieApp\bin\Debug\netcoreapp3.1\AWSSDK.Core.dll
+C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\TheCoolMovieApp\bin\Debug\netcoreapp3.1\AWSSDK.DynamoDBv2.dll
+C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\TheCoolMovieApp\bin\Debug\netcoreapp3.1\AWSSDK.S3.dll

@@ -1,0 +1,8 @@
+﻿@model MyStringModel
+
+@*First tell the user whether login or registration was unsuccessful*@
+<h1>Error! @Html.Label(Model.Message). Please try again!</h1>
+
+@*Then Shows Exception Message(s); if any exist.*@
+@Html.Label("Exception:")
+@Html.Label(Model.Exception)

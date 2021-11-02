@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "O8g2gQdaawBXXoFR0pDjQPiRvFw50do5dYD2WkAL47QThhxAgIdvwin4/0swCjnWyOSynIxVBTSU30X7nxdDGA==",
+  "dgSpecHash": "ecqwkpF4mLyrXIlNAPbVN7Imxfau6Il0TwwtPZ+TYNan7pOt4Ar7CUsQLE9Psq0M0fJGNdgHnTJYA8e7qVKdhQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\farza\\Desktop\\Lab Review\\AWSDesktopGUI\\DesktopAWSGUI\\TheCoolMovieApp\\TheCoolMovieApp.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\farza\\.nuget\\packages\\awssdk.core\\3.7.3.29\\awssdk.core.3.7.3.29.nupkg.sha512",
+    "C:\\Users\\farza\\.nuget\\packages\\awssdk.dynamodbv2\\3.7.0.90\\awssdk.dynamodbv2.3.7.0.90.nupkg.sha512",
+    "C:\\Users\\farza\\.nuget\\packages\\awssdk.s3\\3.7.3.22\\awssdk.s3.3.7.3.22.nupkg.sha512"
+  ],
   "logs": []
 }
