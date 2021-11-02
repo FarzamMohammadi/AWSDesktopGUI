@@ -38,7 +38,7 @@ namespace TheCoolMovieApp.Controllers
             {
                 //If all textboxes are filled then first creates new 'Users' table if it does not already exist
                 bool tableCreated = CreateUserTable().Result;
-                if (tableCreated == true)
+                if (tableCreated)
                 {
                     //If table creation was successful
                     //Then creates new record in the 'Users' table with user input data
@@ -70,22 +70,78 @@ namespace TheCoolMovieApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(UserModel model)
+        public ActionResult Login(UserModel userData)
         {
             //Check to see if all required registration textboxes have been filled
             if (ModelState.IsValid)
             {
+                bool correctUserCredentials = CheckUserCredenitals(userData).Result;
+               
+                if (correctUserCredentials)
+                {
+                    //If credentials match, sets user as logged in using the UserModel and returns user to landing page
+                    UserModel.LoggedIn = true;
+                    return View("Views/Home/Index.cshtml");
+                }
 
-                //Also sets user as logged in using the UserModel
-                UserModel.LoggedIn = true;
-                return View("Login", model);
             }
-            else
+            //If user crenditals don't match or textboxes are empty, error message and error view is shown 
+            MyStringModel EmptyFields = new MyStringModel();
+            EmptyFields.Message = "your credentials did not match our records";
+            return View("Error", EmptyFields);
+
+        }
+
+        private async Task<bool> CheckUserCredenitals(UserModel userData)
+        {
+            // Goes through the Users database and checks if credentials match
+            ClientModel newClient = new ClientModel();
+            AmazonDynamoDBClient client = new AmazonDynamoDBClient(newClient.AccessKeyID, newClient.SecretKey, newClient.Region);
+            string tableName = "MovieUsers";
+            var request = new ScanRequest
             {
+                TableName = tableName
+            };
 
+            var response = await client.ScanAsync(request);
+            var result = response.Items;
+
+            string recordEmail = "";
+            string recordPassword = "";
+            //Checks each entry to make sure all user credentials match
+            for (int i = 0; i < result.Count; i++)
+            {
+                var items = result[i];
+                foreach (var item in items)
+                {
+                    var scanKey = item.Key;
+                    var scanValue = item.Value;
+
+                    if (scanKey == "Email")
+                    {
+                        recordEmail = scanValue.S.ToString();
+                    }
+
+                    if (scanKey == "Password")
+                    {
+                        recordPassword = scanValue.S.ToString();
+                    }
+
+                    if(recordEmail != "" && recordPassword != "")
+                    {
+                        if (userData.Email == recordEmail)
+                        {
+                            if (userData.Password == recordPassword)
+                            {
+                                // if both email and password macth record
+                                return true;
+                            }
+                        }
+                    }
+
+                }
             }
-
-            return View("Login", model);
+            return false;
         }
 
         private async Task<bool> CreateUserTable()
@@ -178,9 +234,6 @@ namespace TheCoolMovieApp.Controllers
                 Console.WriteLine(e.Message);
                 return false;
             }
-      
-
-
         }
     }
 }
