@@ -8,6 +8,7 @@
     <PackageReference Include="AWSSDK.Core" Version="3.7.3.29" />
     <PackageReference Include="AWSSDK.DynamoDBv2" Version="3.7.0.90" />
     <PackageReference Include="AWSSDK.S3" Version="3.7.3.22" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.11" />
   </ItemGroup>
 
 </Project>
