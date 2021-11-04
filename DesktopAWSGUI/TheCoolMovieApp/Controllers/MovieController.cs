@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TheCoolMovieApp.Models;
 
 namespace TheCoolMovieApp.Controllers
 {
@@ -18,10 +19,22 @@ namespace TheCoolMovieApp.Controllers
             return View();
         }
 
-        [HttpPost]
         public ActionResult RedirectToAddNewMovie()
         {
             return View("AddMovie");
         }
+        [HttpPost]
+        public ActionResult AddFileLocation(MovieModel newMovie)
+        {
+            MovieModel.FilePath = "adsffdsafdsa";
+            return View("AddMovie", newMovie);
+        }
+        [HttpPost]
+        public ActionResult AddNewMovie(MovieModel newMovie)
+        {
+            MovieModel.FilePath = "adsffdsafdsa";
+            return View("AddMovie", newMovie);
+        }
+
     }
 }
