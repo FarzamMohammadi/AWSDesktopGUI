@@ -1,0 +1,16 @@
+﻿@model TheCoolMovieApp.Models.UserModel
+@{ if (UserModel.LoggedIn == true)
+    {
+    <div>
+        @using (Html.BeginForm("RedirectToAddNewMovie", "Movie", FormMethod.Post))
+        {
+            <button type="submit">Add New Movie</button>
+        }
+    </div>
+      //List all existing movies
+    }
+    else
+    {
+        <h3> You must sign in for full access!</h3>
+    }
+}

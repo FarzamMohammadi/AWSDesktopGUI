@@ -1,0 +1,20 @@
+﻿@model TheCoolMovieApp.Models.UserModel
+@{ if (UserModel.LoggedIn == true)
+    {
+
+        @using (Html.BeginForm("AddMovie", "UserAuthentication", FormMethod.Post))
+        {
+            @Html.Label("Email:")
+            @Html.TextBoxFor(model => model.Email)
+            @Html.ValidationMessageFor(model => model.Email)
+            @Html.Label("Password:")
+            @Html.TextBoxFor(model => model.Password)
+            @Html.ValidationMessageFor(model => model.Password)
+            <button type="submit">Sign In</button>
+        }
+    }
+    else
+    {
+        <h3> Please Sign in to upload a movie.</h3>
+    }
+}

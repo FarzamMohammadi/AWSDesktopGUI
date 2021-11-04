@@ -30,6 +30,20 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="UserAuthentication" asp-action="SignUp">Sign Up</a>
                         </li>
+                        @*if user is logged in, sets navbar username for extra coolness*@
+                        @{ if (UserModel.LoggedIn == true)
+                            {
+                                <li class="navbar-nav ml-auto">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Movie" asp-action="ViewAllMovies">Welcolme: @UserModel.Username</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Movie" asp-action="ViewAllMovies">View Movies</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Movie" asp-action="AddMovie">Add Movie</a>
+                                </li>
+
+                            } }
                     </ul>
                 </div>
             </div>

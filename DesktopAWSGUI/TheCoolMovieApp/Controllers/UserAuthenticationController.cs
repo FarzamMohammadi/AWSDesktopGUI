@@ -94,6 +94,8 @@ namespace TheCoolMovieApp.Controllers
                     user.Email = reader.GetString(3); 
                     user.Password = reader.GetString(4);
                 };
+                //Sets navbar username for extra coolness
+                UserModel.Username = user.FirstName;
                 return true;
             }
 

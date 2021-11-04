@@ -15,6 +15,8 @@ namespace TheCoolMovieApp.Models
         [Required]
         public string Password { get; set; }
         public static bool LoggedIn { get; set; }
+        public static string Username { get; set; }
+
 
 
     }
