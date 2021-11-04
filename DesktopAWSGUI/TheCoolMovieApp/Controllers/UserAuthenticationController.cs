@@ -1,7 +1,6 @@
 ﻿using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.DocumentModel;
 using Amazon.DynamoDBv2.Model;
-using eBookReader.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Data.SqlClient;
@@ -74,8 +73,10 @@ namespace TheCoolMovieApp.Controllers
 
         private bool CheckUserCredenitals(UserModel userData)
         {
+
             SqlConnection conn = new SqlConnection();
-            string connString = ClientModel.RDSConnStr;
+            ClientModel newClient = new ClientModel();
+            string connString = newClient.RDSConnStr;
             conn.ConnectionString = connString;
             conn.Open();
             string newUserQuery = " SELECT * FROM Users WHERE Email = '" + userData.Email + "' AND Password = '" + userData.Password +"';";
@@ -109,7 +110,8 @@ namespace TheCoolMovieApp.Controllers
             CreateDBTable();
             //Initialize connection
             SqlConnection conn = new SqlConnection();
-            string connString = ClientModel.RDSConnStr;
+            ClientModel newClient = new ClientModel();
+            string connString = newClient.RDSConnStr;
             conn.ConnectionString = connString;
             conn.Open();
 
@@ -130,7 +132,8 @@ namespace TheCoolMovieApp.Controllers
         private void CreateDBTable()
         {
             SqlConnection conn = new SqlConnection();
-            string connString = ClientModel.RDSConnStr;
+            ClientModel newClient = new ClientModel();
+            string connString = newClient.RDSConnStr;
             conn.ConnectionString = connString;
             conn.Open();
            

@@ -24,15 +24,11 @@ namespace TheCoolMovieApp.Controllers
         {
             return View("AddMovie");
         }
+ 
         [HttpPost]
-        public ActionResult AddFileLocation(MovieModel newMovie)
+        public ActionResult AddMovie(MovieModel newMovie)
         {
-            
-            return View("AddMovie", newMovie);
-        }
-        [HttpPost]
-        public ActionResult AddNewMovie(MovieModel newMovie)
-        {
+            ClientModel client = new ClientModel();
             return View("AddMovie", newMovie);
         }
     }

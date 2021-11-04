@@ -31,9 +31,10 @@
     ".NETCoreApp,Version=v3.1": {
       "TheCoolMovieApp/1.0.0": {
         "dependencies": {
-          "AWSSDK.Core": "3.7.3.29",
-          "AWSSDK.DynamoDBv2": "3.7.0.90",
-          "AWSSDK.S3": "3.7.3.22",
+          "AWSSDK.Core": "3.7.3.31",
+          "AWSSDK.DynamoDBv2": "3.7.0.92",
+          "AWSSDK.S3": "3.7.3.24",
+          "AWSSDK.SimpleSystemsManagement": "3.7.7.16",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.11",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "3.1.0.0",
@@ -313,43 +314,57 @@
           "TheCoolMovieApp.dll": {}
         }
       },
-      "AWSSDK.Core/3.7.3.29": {
+      "AWSSDK.Core/3.7.3.31": {
         "runtime": {
           "lib/netcoreapp3.1/AWSSDK.Core.dll": {
             "assemblyVersion": "3.3.0.0",
-            "fileVersion": "3.7.3.29"
+            "fileVersion": "3.7.3.31"
           }
         },
         "compile": {
           "lib/netcoreapp3.1/AWSSDK.Core.dll": {}
         }
       },
-      "AWSSDK.DynamoDBv2/3.7.0.90": {
+      "AWSSDK.DynamoDBv2/3.7.0.92": {
         "dependencies": {
-          "AWSSDK.Core": "3.7.3.29"
+          "AWSSDK.Core": "3.7.3.31"
         },
         "runtime": {
           "lib/netcoreapp3.1/AWSSDK.DynamoDBv2.dll": {
             "assemblyVersion": "3.3.0.0",
-            "fileVersion": "3.7.0.90"
+            "fileVersion": "3.7.0.92"
           }
         },
         "compile": {
           "lib/netcoreapp3.1/AWSSDK.DynamoDBv2.dll": {}
         }
       },
-      "AWSSDK.S3/3.7.3.22": {
+      "AWSSDK.S3/3.7.3.24": {
         "dependencies": {
-          "AWSSDK.Core": "3.7.3.29"
+          "AWSSDK.Core": "3.7.3.31"
         },
         "runtime": {
           "lib/netcoreapp3.1/AWSSDK.S3.dll": {
             "assemblyVersion": "3.3.0.0",
-            "fileVersion": "3.7.3.22"
+            "fileVersion": "3.7.3.24"
           }
         },
         "compile": {
           "lib/netcoreapp3.1/AWSSDK.S3.dll": {}
+        }
+      },
+      "AWSSDK.SimpleSystemsManagement/3.7.7.16": {
+        "dependencies": {
+          "AWSSDK.Core": "3.7.3.31"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/AWSSDK.SimpleSystemsManagement.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.7.7.16"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/AWSSDK.SimpleSystemsManagement.dll": {}
         }
       },
       "Microsoft.CSharp/4.5.0": {},
@@ -3038,26 +3053,33 @@
       "serviceable": false,
       "sha512": ""
     },
-    "AWSSDK.Core/3.7.3.29": {
+    "AWSSDK.Core/3.7.3.31": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-1SpqCIGnNeSQSWfkxvMMuVWuPXKBXD5RMM1g0Puy/eYEncMFL318qZW8yAmzXpRzOnqn+uVpCQ4YzU29eGSTPg==",
-      "path": "awssdk.core/3.7.3.29",
-      "hashPath": "awssdk.core.3.7.3.29.nupkg.sha512"
+      "sha512": "sha512-PN7l43TFbgQ3vm85ahyy9nliI2wsTwB7CuEU2N3MkYzqvhYXdll5tiX4K97SPfDnOxnqnJK7qCKnoPPH01EfYA==",
+      "path": "awssdk.core/3.7.3.31",
+      "hashPath": "awssdk.core.3.7.3.31.nupkg.sha512"
     },
-    "AWSSDK.DynamoDBv2/3.7.0.90": {
+    "AWSSDK.DynamoDBv2/3.7.0.92": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-3ouQJ8WB6Vac6OiK7KmrqzAcv6EbG4u1mUkMXVvCAA+YNf2q7auIiu1ZYv8dRSGDjpntZ6mAZtUpdBwyCsoh+g==",
-      "path": "awssdk.dynamodbv2/3.7.0.90",
-      "hashPath": "awssdk.dynamodbv2.3.7.0.90.nupkg.sha512"
+      "sha512": "sha512-YHFGUm1F1SSjU6WuzHAeLJNgXVHh7iSHKqkBSlwIlJswhnv+H7G0YyaQRVeVE4z6nM0BBq0YnxmA3m63oUYvQg==",
+      "path": "awssdk.dynamodbv2/3.7.0.92",
+      "hashPath": "awssdk.dynamodbv2.3.7.0.92.nupkg.sha512"
     },
-    "AWSSDK.S3/3.7.3.22": {
+    "AWSSDK.S3/3.7.3.24": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-MILN1g3fZKngyUn6GXG9ABkAAH+bqB4LU6/HJTgghf1HKH0rbbxvn7wz/4mv+kCXUGGsLM+79RSW2ZyYj/iIIg==",
-      "path": "awssdk.s3/3.7.3.22",
-      "hashPath": "awssdk.s3.3.7.3.22.nupkg.sha512"
+      "sha512": "sha512-6NOj48pU18tbLo5MV1IjtFsTWiKHFRyBgmEg1jdH6D+UmY1c3rrrzhLxSEincsFmOQsMh6VO9161YfFgOABtZA==",
+      "path": "awssdk.s3/3.7.3.24",
+      "hashPath": "awssdk.s3.3.7.3.24.nupkg.sha512"
+    },
+    "AWSSDK.SimpleSystemsManagement/3.7.7.16": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ujAsq0cNErtU3IU0HYzor46Xm9Yv6UmBEH53B4rm1HhB+EqixZfroTAQdL0KztlZ8d1h8D6uQIkRDHGvap/sgg==",
+      "path": "awssdk.simplesystemsmanagement/3.7.7.16",
+      "hashPath": "awssdk.simplesystemsmanagement.3.7.7.16.nupkg.sha512"
     },
     "Microsoft.CSharp/4.5.0": {
       "type": "package",

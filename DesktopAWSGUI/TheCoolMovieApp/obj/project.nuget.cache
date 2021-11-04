@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "ps0zznLSqUCqaGmSzlHvNy9j34MHj60R+O2pUSyuro9krB9zKVRQSYznnGR8FVRGoJo120Fch6ijA80R4b2G0w==",
+  "dgSpecHash": "A4RPhoizDmbORusB/tDHBlutktXmJRKW3vB/vcosQZ8IPLUcUJ0orWXoNvBKWYmvnSePfH9iIwRzPZ+ugGbxfA==",
   "success": true,
   "projectFilePath": "C:\\Users\\farza\\Desktop\\Lab Review\\AWSDesktopGUI\\DesktopAWSGUI\\TheCoolMovieApp\\TheCoolMovieApp.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\farza\\.nuget\\packages\\awssdk.core\\3.7.3.29\\awssdk.core.3.7.3.29.nupkg.sha512",
-    "C:\\Users\\farza\\.nuget\\packages\\awssdk.dynamodbv2\\3.7.0.90\\awssdk.dynamodbv2.3.7.0.90.nupkg.sha512",
-    "C:\\Users\\farza\\.nuget\\packages\\awssdk.s3\\3.7.3.22\\awssdk.s3.3.7.3.22.nupkg.sha512",
+    "C:\\Users\\farza\\.nuget\\packages\\awssdk.core\\3.7.3.31\\awssdk.core.3.7.3.31.nupkg.sha512",
+    "C:\\Users\\farza\\.nuget\\packages\\awssdk.dynamodbv2\\3.7.0.92\\awssdk.dynamodbv2.3.7.0.92.nupkg.sha512",
+    "C:\\Users\\farza\\.nuget\\packages\\awssdk.s3\\3.7.3.24\\awssdk.s3.3.7.3.24.nupkg.sha512",
+    "C:\\Users\\farza\\.nuget\\packages\\awssdk.simplesystemsmanagement\\3.7.7.16\\awssdk.simplesystemsmanagement.3.7.7.16.nupkg.sha512",
     "C:\\Users\\farza\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\farza\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
     "C:\\Users\\farza\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.0.1\\microsoft.data.sqlclient.sni.runtime.2.0.1.nupkg.sha512",

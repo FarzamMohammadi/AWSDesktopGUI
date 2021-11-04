@@ -17,8 +17,9 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <PkgNewtonsoft_Json Condition=" '$(PkgNewtonsoft_Json)' == '' ">C:\Users\farza\.nuget\packages\newtonsoft.json\10.0.1</PkgNewtonsoft_Json>
-    <PkgAWSSDK_Core Condition=" '$(PkgAWSSDK_Core)' == '' ">C:\Users\farza\.nuget\packages\awssdk.core\3.7.3.29</PkgAWSSDK_Core>
-    <PkgAWSSDK_S3 Condition=" '$(PkgAWSSDK_S3)' == '' ">C:\Users\farza\.nuget\packages\awssdk.s3\3.7.3.22</PkgAWSSDK_S3>
-    <PkgAWSSDK_DynamoDBv2 Condition=" '$(PkgAWSSDK_DynamoDBv2)' == '' ">C:\Users\farza\.nuget\packages\awssdk.dynamodbv2\3.7.0.90</PkgAWSSDK_DynamoDBv2>
+    <PkgAWSSDK_Core Condition=" '$(PkgAWSSDK_Core)' == '' ">C:\Users\farza\.nuget\packages\awssdk.core\3.7.3.31</PkgAWSSDK_Core>
+    <PkgAWSSDK_SimpleSystemsManagement Condition=" '$(PkgAWSSDK_SimpleSystemsManagement)' == '' ">C:\Users\farza\.nuget\packages\awssdk.simplesystemsmanagement\3.7.7.16</PkgAWSSDK_SimpleSystemsManagement>
+    <PkgAWSSDK_S3 Condition=" '$(PkgAWSSDK_S3)' == '' ">C:\Users\farza\.nuget\packages\awssdk.s3\3.7.3.24</PkgAWSSDK_S3>
+    <PkgAWSSDK_DynamoDBv2 Condition=" '$(PkgAWSSDK_DynamoDBv2)' == '' ">C:\Users\farza\.nuget\packages\awssdk.dynamodbv2\3.7.0.92</PkgAWSSDK_DynamoDBv2>
   </PropertyGroup>
 </Project>
