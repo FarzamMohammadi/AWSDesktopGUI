@@ -1,52 +1,25 @@
 ﻿@model TheCoolMovieApp.Models.MovieModel
 @{ if (UserModel.LoggedIn == true)
     {
-        if (MovieModel.FilePath == null)
+        <h2>Add Movie:</h2>
+
+        @using (Html.BeginForm("AddFileLocation", "Movie", FormMethod.Post))
         {
-            <h2>Add Movie:</h2>
-            @using (Html.BeginForm("AddFileLocation", "Movie", FormMethod.Post))
-            {
-                @Html.Label("Title:")
-                @Html.TextBoxFor(model => model.Title)
-                @Html.ValidationMessageFor(model => model.Title)
-                @Html.Label("Year:")
-                @Html.TextBoxFor(model => model.Year)
-                @Html.Label("Country of Origin:")
-                @Html.TextBoxFor(model => model.Origin)
-                @Html.Label("Length:")
-                @Html.TextBoxFor(model => model.Length)
-                @Html.Label("File Location:")
-                @Html.TextBox("sadf", "", new { @readonly = "readonly" })
-                @Html.Label(MovieModel.FilePath)
+            @Html.Label("Title:")
+            @Html.TextBoxFor(model => model.Title)
+            @Html.ValidationMessageFor(model => model.Title)
+            @Html.Label("Year:")
+            @Html.TextBoxFor(model => model.Year)
+            @Html.Label("Country of Origin:")
+            @Html.TextBoxFor(model => model.Origin)
+            @Html.Label("Length:")
+            @Html.TextBoxFor(model => model.Length)
+            @Html.Label("File Location:")
+            @Html.TextBoxFor(model => model.FilePath, new { type = "file" })
+            @Html.ValidationMessageFor(model => model.FilePath)
 
-                <button type="submit">Select File Location</button>
-            }
+            <button type="submit">Add Movie</button>
         }
-        else
-        {
-            @using (Html.BeginForm("AddNewMovie", "Movie", FormMethod.Post))
-            {
-                @Html.Label("Title:")
-                @Html.TextBoxFor(model => model.Title)
-                @Html.ValidationMessageFor(model => model.Title)
-                @Html.Label("Year:")
-                @Html.TextBoxFor(model => model.Year)
-                @Html.Label("Country of Origin:")
-                @Html.TextBoxFor(model => model.Origin)
-                @Html.Label("Length:")
-                @Html.TextBoxFor(model => model.Length)
-                @Html.Label("File Location:")
-                @Html.TextBox("MoviePathTxtBox", MovieModel.FilePath, new { @readonly = "readonly" })
-
-                <button type="submit">Add Movie</button>
-            }
-
-            @using (Html.BeginForm("AddFileLocation", "Movie", FormMethod.Post))
-            {
-                <button type="submit">Select New File Location</button>
-            }
-        }
-
     }
     else
     {

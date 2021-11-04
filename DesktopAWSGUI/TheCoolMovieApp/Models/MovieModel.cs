@@ -13,6 +13,8 @@ namespace TheCoolMovieApp.Models
         public string Year { get; set; }
         public string Origin { get; set; }
         public string Length { get; set; }
-        public static string FilePath { get; set; }
+        [Required]
+        public  string FilePath { get; set; }
+
     }
 }

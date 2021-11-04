@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Amazon.S3.Model;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,15 +27,13 @@ namespace TheCoolMovieApp.Controllers
         [HttpPost]
         public ActionResult AddFileLocation(MovieModel newMovie)
         {
-            MovieModel.FilePath = "adsffdsafdsa";
+            
             return View("AddMovie", newMovie);
         }
         [HttpPost]
         public ActionResult AddNewMovie(MovieModel newMovie)
         {
-            MovieModel.FilePath = "adsffdsafdsa";
             return View("AddMovie", newMovie);
         }
-
     }
 }
