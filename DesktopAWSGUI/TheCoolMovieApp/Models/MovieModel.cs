@@ -20,5 +20,8 @@ namespace TheCoolMovieApp.Models
         public static List<MovieModel> MoviesToShow { get; set; }
         public static string MovieIDToDelete {get;set;}
         public int Rating { get; set; }
+        public string Comment { get; set; }
+        public static List<Tuple<string, string>> CommentList = new List<Tuple<string, string>>();
+
     }
 }

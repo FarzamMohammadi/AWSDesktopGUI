@@ -1,9 +1,14 @@
-﻿@model TheCoolMovieApp.Models.CommentModel
+﻿@model TheCoolMovieApp.Models.MovieModel
 @if (UserModel.LoggedIn == true)
 {
     <h1>Comment:</h1>
-    @using (Html.BeginForm("AddNewComment", "Movie", FormMethod.Post))
+    @using (Html.BeginForm("SubmitComment", "Movie", FormMethod.Post))
     {
+        @Html.TextBoxFor(model => model.Title, new { style = "display: none;" })
+        @Html.TextBoxFor(model => model.Year, new { style = "display: none;" })
+        @Html.TextBoxFor(model => model.Origin, new { style = "display: none;" })
+        @Html.TextBoxFor(model => model.Length, new { style = "display: none;" })
+        @Html.TextBoxFor(model => model.Creator, new { style = "display: none;" })
         @Html.TextBoxFor(model => model.Comment, new { @class = "form-control form-control-custom", @style = "width:1000px; height:100px;" })
         <button class="delete-btn" type="submit">Submit</button>
     }

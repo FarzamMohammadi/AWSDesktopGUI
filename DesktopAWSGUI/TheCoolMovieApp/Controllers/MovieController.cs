@@ -25,9 +25,179 @@ namespace TheCoolMovieApp.Controllers
             GetAllMovieToShow();
             return View();
         }
-       
+        public ActionResult AddNewComment(MovieModel movie)
+        {
+            //Checks to see if comment already exists. Only returns results if not past 24hr deadline
+            string existingComment = GetUserComment(movie).Result.Item1;
+            if(existingComment == null)
+            {
+                //If it doesnt exit, leaves view comment section empty
+                return View("AddComment", movie);
+            }
+            else
+            {
+                //If comment exists adds it to movie before passing the model to view
+                movie.Comment = existingComment;
+                return View("AddComment", movie);
+            }
+        }
 
-            private void GetAllMovieToShow()
+
+        private async Task GetAllMovieComments(MovieModel movie)
+        {
+            List<Tuple<string, string>> commentList = new List<Tuple<string, string>>();
+            AmazonDynamoDBClient client = ClientModel.dynamoDBclient;
+            string tableName = "movie-comments";
+            var request = new ScanRequest
+            {
+                TableName = tableName
+            };
+
+            var response = await client.ScanAsync(request);
+            var result = response.Items;
+
+            //Gets current rating and number of ratings and Id if movie mathces title and creator
+            for (int i = 0; i < result.Count; i++)
+            {
+                string scanComment = "";
+                string scanTitle = "";
+                string scanUser = "";
+
+                var items = result[i];
+                foreach (var item in items)
+                {
+                    var scanKey = item.Key;
+                    var scanValue = item.Value;
+
+                    if (scanKey == "Title")
+                    {
+                        scanTitle = scanValue.S.ToString();
+                    }
+                    if (scanKey == "CommentCreator")
+                    {
+                        scanUser = scanValue.S.ToString();
+                    }
+
+                    if (scanKey == "Comment")
+                    {
+                        scanComment = scanValue.S.ToString();
+                    }
+                }
+                if (scanTitle == movie.Title && scanComment != null && scanUser != null)
+                {
+                    //If any commetns exist for this TItle
+                    Tuple<string, string> comment = new Tuple<string, string>(scanUser, scanComment);
+                    commentList.Add(comment);
+                }
+            }
+            MovieModel.CommentList = commentList;
+        }
+
+        private async Task<Tuple<string, int>> GetUserComment(MovieModel movie)
+        {
+            AmazonDynamoDBClient client = ClientModel.dynamoDBclient;
+            string tableName = "movie-comments";
+            var request = new ScanRequest
+            {
+                TableName = tableName
+            };
+
+            var response = await client.ScanAsync(request);
+            var result = response.Items;
+
+            //Gets current rating and number of ratings and Id if movie mathces title and creator
+            for (int i = 0; i < result.Count; i++)
+            {
+                int idToReturn = 0;
+                string scanComment = "";
+                string scanCreationTime = "";
+                string scanTitle = "";
+                string scanCreator = "";
+
+                var items = result[i];
+                foreach (var item in items)
+                {
+                    var scanKey = item.Key;
+                    var scanValue = item.Value;
+
+                    if (scanKey == "Id")
+                    {
+                        idToReturn = int.Parse(scanValue.N);
+                    }
+                    if (scanKey == "Title")
+                    {
+                        scanTitle = scanValue.S.ToString();
+                    }
+                    if (scanKey == "CommentCreator")
+                    {
+                        scanCreator = scanValue.S.ToString();
+                    }
+                    if (scanKey == "Comment")
+                    {
+                        scanComment = scanValue.S.ToString();
+                    }
+                    if (scanKey == "CreationTime")
+                    {
+                        scanCreationTime = scanValue.S.ToString();
+                    }
+                }
+                if (scanTitle == movie.Title && scanCreator == UserModel.Username && scanComment != null && scanCreationTime != null && idToReturn != 0)
+                {
+                    DateTime now = DateTime.Now;
+                    DateTime createdOn = DateTime.Parse(scanCreationTime);
+                   if (createdOn > now.AddHours(-24) && createdOn <= now)
+                    {
+                        return new Tuple<string, int>(scanComment, idToReturn);
+                    }
+                }
+            }
+            //If no comment exists or if comment creation date is past 24 hrs
+            return new Tuple<string, int>("", 0);
+        }
+
+        public async Task<ActionResult> SubmitComment(MovieModel movie)
+        {
+            int existingCommentId = GetUserComment(movie).Result.Item2;
+
+            AmazonDynamoDBClient client = ClientModel.dynamoDBclient;
+            Table table = Table.LoadTable(client, "movie-comments");
+            var newComment = new Document();
+            //If this is a new comment
+            if (existingCommentId != 0)
+            {
+                //If this comment is being upaded by user within the 24hr deadline
+                //Ensures record matches comment details and then updates comment
+                newComment["Id"] = existingCommentId;
+                newComment["Title"] = movie.Title;
+                newComment["CommentCreator"] = UserModel.Username;
+                newComment["Comment"] = movie.Comment;
+                newComment["CreationTime"] = DateTime.Now.ToString();
+                await table.UpdateItemAsync(newComment);
+                GetAllMovieComments(movie).Wait();
+                return View("EditMovie", movie);
+            }
+            else
+            {
+                //If no comment exist then creates new record with appropriate Id            
+                DescribeTableRequest request = new DescribeTableRequest
+                {
+                    TableName = "movie-comments"
+                };
+                //Gets item count from dynamodb table to add new record with correct Id
+                long tableItemCount = client.DescribeTableAsync(request).Result.Table.ItemCount;
+
+                newComment["Id"] = tableItemCount + 1;
+                newComment["Title"] = movie.Title;
+                newComment["CommentCreator"] = UserModel.Username;
+                newComment["Comment"] = movie.Comment;
+                newComment["CreationTime"] = DateTime.Now.ToString();
+                await table.PutItemAsync(newComment);
+                GetAllMovieComments(movie).Wait();
+                return View("EditMovie", movie);
+            }
+        }
+
+        private void GetAllMovieToShow()
         {   //Creates table if it doesnt exist to prevent exception
             CreateDBTable();
             SqlConnection conn = new SqlConnection();
@@ -244,7 +414,7 @@ namespace TheCoolMovieApp.Controllers
             conn.Open();
             string newUserQuery = "DELETE FROM Movies WHERE Title = '" + MovieIDToDelete + "' AND Creator = '" + UserModel.Username + "';";
             SqlCommand myCommand = new SqlCommand(newUserQuery, conn);
-            var reader = myCommand.ExecuteReader();
+            myCommand.ExecuteReader();
         }
 
         private bool DeleteMovieS3(string MovieIDToDelete)
@@ -268,7 +438,7 @@ namespace TheCoolMovieApp.Controllers
 
         public ActionResult RedirectToEditMovie(MovieModel movie)
         {
-            LoadComments(movie);
+            GetAllMovieComments(movie).Wait();
             //Sets title in to delete in database if user makes changes
             if (UserModel.Username == movie.Creator)
             {
@@ -293,17 +463,6 @@ namespace TheCoolMovieApp.Controllers
                 return View("EditMovie", movie);
             }
         }
-
-        private void LoadComments(MovieModel movie)
-        {
-            List<Tuple<string, string>> comments = new List<Tuple<string, string>>();
-            Tuple<string, string> one = new Tuple<string, string>("farzam", "asdffadssafdsfdafdsafdsafdsafdsfadsfdasfdsafdsafdsafdsafdsa");
-            Tuple<string, string> two = new Tuple<string, string>("Prsasadf", "234asdffad. \\nssafdsfdasdffsa3223afdsafdsafdsafdsf\nadsfdasfdsafdsafdsafdsafdsa");
-            comments.Add(one);
-            comments.Add(two);
-            CommentModel.CommentList = comments;
-        }
-
 
         //Limit of 2GB also added to web.config
         [HttpPost]
