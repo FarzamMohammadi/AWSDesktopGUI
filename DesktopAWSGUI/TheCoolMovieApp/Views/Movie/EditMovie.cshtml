@@ -2,6 +2,16 @@
 
 @{ if (UserModel.LoggedIn == true)
     {
+        @using (Html.BeginForm("DeleteMovie", "Movie", FormMethod.Post))
+        { 
+
+            @Html.TextBoxFor(model => model.Title, new { style = "display: none;" })
+            @Html.TextBoxFor(model => model.Year, new { style = "display: none;" })
+            @Html.TextBoxFor(model => model.Origin, new { style = "display: none;" })
+            @Html.TextBoxFor(model => model.Length, new { style = "display: none;" })
+            @Html.TextBoxFor(model => model.Creator, new { style = "display: none;" })
+            <button type="submit">Delete Movie</button>
+        }
         <h2>Edit Movie:</h2>
         @using (Html.BeginForm("EditMovie", "Movie", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {

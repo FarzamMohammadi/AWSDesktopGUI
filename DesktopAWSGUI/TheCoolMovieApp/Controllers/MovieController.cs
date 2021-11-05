@@ -69,6 +69,23 @@ namespace TheCoolMovieApp.Controllers
             return View("ViewAllMovies");
         }
 
+        public ActionResult DeleteMovie(MovieModel movie)
+        {
+            if (DeleteMovieS3(movie.Title))
+            {
+                DeleteMovieRecord(movie.Title);
+            }
+            else
+            {
+                //Delete Unsuccessful
+                MyStringModel deleteUnsuccessful = new MyStringModel();
+                deleteUnsuccessful.Message = "Delete Unsuccessful";
+                return View("Error", deleteUnsuccessful);
+            }
+
+            GetAllMovieToShow();
+            return View("ViewAllMovies");
+        }
         private void DeleteMovieRecord(string movieIDToDelete)
         {
             //Delete record from table but once again makes sure the user and title match
@@ -81,6 +98,20 @@ namespace TheCoolMovieApp.Controllers
             var reader = myCommand.ExecuteReader();
         }
 
+        private bool DeleteMovieS3(string movieIDToDelete)
+        {
+            try
+            {
+                ClientModel.S3Client.DeleteObjectAsync(new DeleteObjectRequest() { BucketName = ClientModel.BucketName, Key = movieIDToDelete });
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            
+
+        }
         public ActionResult RedirectToAddNewMovie()
         {
             return View("AddMovie");
