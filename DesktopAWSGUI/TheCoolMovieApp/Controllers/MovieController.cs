@@ -179,14 +179,14 @@ namespace TheCoolMovieApp.Controllers
             else
             {
                 //If no comment exist then creates new record with appropriate Id            
-                DescribeTableRequest request = new DescribeTableRequest
+                var request = new ScanRequest
                 {
                     TableName = "movie-comments"
                 };
+                var response = client.ScanAsync(request);
+                var result = response.Result;
                 //Gets item count from dynamodb table to add new record with correct Id
-                long tableItemCount = client.DescribeTableAsync(request).Result.Table.ItemCount;
-
-                newComment["Id"] = tableItemCount + 1;
+                newComment["Id"] = result.Count + 1;
                 newComment["Title"] = movie.Title;
                 newComment["CommentCreator"] = UserModel.Username;
                 newComment["Comment"] = movie.Comment;
@@ -265,15 +265,15 @@ namespace TheCoolMovieApp.Controllers
             else
             {
                 //If no ratings exist then creates new record with appropriate Id            
-                DescribeTableRequest request = new DescribeTableRequest
+                var request = new ScanRequest
                 {
                     TableName = "movie-ratings"
                 };
-                //Gets item count from dynamodb table to add new record with correct Id
-                long tableItemCount = client.DescribeTableAsync(request).Result.Table.ItemCount;
+                var response = client.ScanAsync(request);
+                var result = response.Result;
                 //Ensures record matches movie details and then enters new rating
                 var newRating = new Document();
-                newRating["Id"] = tableItemCount + 1;
+                newRating["Id"] = result.Count +1;
                 newRating["Title"] = movie.Title;
                 newRating["Creator"] = movie.Creator;
                 newRating["NumberOfRatings"] = 1;
@@ -332,7 +332,7 @@ namespace TheCoolMovieApp.Controllers
                         ratingToReturn = scanValue.S.ToString();
                     }
                 }
-                if (scanTitle == title && scanCreator == creator && ratingToReturn != null && numberOfRatingsToReturn != null && idToReturn != 0)
+                if (scanTitle == title && scanCreator == UserModel.Username && ratingToReturn != null && numberOfRatingsToReturn != null && idToReturn != 0)
                 {
                     return Tuple.Create(ratingToReturn, numberOfRatingsToReturn, idToReturn);
                 }

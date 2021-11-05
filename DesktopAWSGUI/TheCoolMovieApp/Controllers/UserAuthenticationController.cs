@@ -29,7 +29,12 @@ namespace TheCoolMovieApp.Controllers
         {
             return View();
         }
-
+        public ActionResult Logout(UserModel userData)
+        {
+            UserModel.LoggedIn = false;
+            UserModel.Username = "";
+            return View("Views/Home/Index.cshtml");
+        }
         [HttpPost]
         public ActionResult Register(UserModel userData)
         {
