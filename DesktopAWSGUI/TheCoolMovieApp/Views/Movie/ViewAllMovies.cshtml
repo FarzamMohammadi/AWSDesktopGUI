@@ -11,7 +11,7 @@
         <div class="head">
             <h1>All Movies</h1>
         </div>
-        @using (Html.BeginForm("EditAMovie", "Movie", FormMethod.Post))
+        @using (Html.BeginForm("RedirectToEditMovie", "Movie", FormMethod.Post))
         {
             @foreach (MovieModel movie in MovieModel.MoviesToShow)
             {
@@ -19,6 +19,7 @@
                 @Html.TextBoxFor(model => movie.Year, new { style = "display: none;" })
                 @Html.TextBoxFor(model => movie.Origin, new { style = "display: none;" })
                 @Html.TextBoxFor(model => movie.Length, new { style = "display: none;" })
+                @Html.TextBoxFor(model => movie.Creator, new { style = "display: none;" })
                 <div>
                     <button type="submit">
                         @movie.Title

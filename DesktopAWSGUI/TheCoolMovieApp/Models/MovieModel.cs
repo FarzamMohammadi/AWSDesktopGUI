@@ -14,15 +14,10 @@ namespace TheCoolMovieApp.Models
         public string Year { get; set; }
         public string Origin { get; set; }
         public string Length { get; set; }
+        public string Creator { get; set; }
         [Required]
         public IFormFile File { get; set; }
         public static List<MovieModel> MoviesToShow { get; set; }
-       /* public MovieModel(string title, string year, string origin, string length)
-        {
-            Title = title;
-            Year = year;
-            Origin = origin;
-            Length = length;
-        }*/
+        public static string movieIDToDelete {get;set;}
     }
 }

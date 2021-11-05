@@ -22,7 +22,8 @@ namespace TheCoolMovieApp.Controllers
         }
 
         private void GetAllMovieToShow()
-        {
+        {   //Creates table if it doesnt exist to prevent exception
+            CreateDBTable();
             SqlConnection conn = new SqlConnection();
             string connString = ClientModel.RDSConnStr;
             conn.ConnectionString = connString;
@@ -31,7 +32,6 @@ namespace TheCoolMovieApp.Controllers
             SqlCommand myCommand = new SqlCommand(newUserQuery, conn);
 
             var reader = myCommand.ExecuteReader();
-            bool userCredsMatch = reader.HasRows;
             List<MovieModel> moviesToShow = new List<MovieModel>();
             while (reader.Read())
             {
@@ -40,6 +40,7 @@ namespace TheCoolMovieApp.Controllers
                 movieRecord.Year = reader.GetString(2);
                 movieRecord.Origin = reader.GetString(3);
                 movieRecord.Length = reader.GetString(4);
+                movieRecord.Creator = reader.GetString(5);
                 moviesToShow.Add(movieRecord);
             };
             MovieModel.MoviesToShow = moviesToShow;
@@ -50,15 +51,71 @@ namespace TheCoolMovieApp.Controllers
             return View();
         }
 
+        public IActionResult EditMovie(MovieModel newMovie)
+        {
+            if (UserModel.Username == newMovie.Creator)
+            {
+                DeleteMovieRecord(MovieModel.movieIDToDelete);
+                AddNewMovieToDB(newMovie);
+            }
+            else
+            {
+                //If upload is Unsuccessful
+                MyStringModel noAccess = new MyStringModel();
+                noAccess.Message = "You are not the creator of this movie and thus do not have access to edit this movie";
+                return View("Error", noAccess);
+            }
+            GetAllMovieToShow();
+            return View("ViewAllMovies");
+        }
+
+        private void DeleteMovieRecord(string movieIDToDelete)
+        {
+            //Delete record from table but once again makes sure the user and title match
+            SqlConnection conn = new SqlConnection();
+            string connString = ClientModel.RDSConnStr;
+            conn.ConnectionString = connString;
+            conn.Open();
+            string newUserQuery = "DELETE FROM Movies WHERE Title = '" + movieIDToDelete + "' AND Creator = '" + UserModel.Username + "';";
+            SqlCommand myCommand = new SqlCommand(newUserQuery, conn);
+            var reader = myCommand.ExecuteReader();
+        }
+
         public ActionResult RedirectToAddNewMovie()
         {
             return View("AddMovie");
         }
 
-        public ActionResult EditAMovie(MovieModel movie)
+        public ActionResult RedirectToEditMovie(MovieModel movie)
         {
-            return View("EditMovie", movie);
+            //Sets title in to delete in database if user makes changes
+            if (UserModel.Username == movie.Creator)
+            {
+                SqlConnection conn = new SqlConnection();
+                string connString = ClientModel.RDSConnStr;
+                conn.ConnectionString = connString;
+                conn.Open();
+                string newUserQuery = " SELECT * FROM Movies WHERE Title = '" + movie.Title + "' AND Creator = '" + movie.Creator +"';";
+                SqlCommand myCommand = new SqlCommand(newUserQuery, conn);
+
+
+                var reader = myCommand.ExecuteReader();
+                List<MovieModel> moviesToShow = new List<MovieModel>();
+                while (reader.Read())
+                {
+                    MovieModel.movieIDToDelete = reader.GetString(1);
+                };
+                return View("EditMovie", movie);
+            }
+            else
+            {
+                //If upload is Unsuccessful
+                MyStringModel noAccess = new MyStringModel();
+                noAccess.Message = "You are not the creator of this movie and thus do not have access to edit this movie";
+                return View("Error", noAccess);
+            }
         }
+    
 
         //Limit of 2GB also added to web.config
         [HttpPost]
@@ -73,9 +130,9 @@ namespace TheCoolMovieApp.Controllers
             else
             {
                 //If upload is Unsuccessful
-                MyStringModel UploadUnsuccessful = new MyStringModel();
-                UploadUnsuccessful.Message = "Upload Unsuccessful";
-                return View("Error", UploadUnsuccessful);
+                MyStringModel uploadUnsuccessful = new MyStringModel();
+                uploadUnsuccessful.Message = "Upload Unsuccessful";
+                return View("Error", uploadUnsuccessful);
             }
             GetAllMovieToShow();
             return View("ViewAllMovies");
@@ -92,8 +149,8 @@ namespace TheCoolMovieApp.Controllers
             conn.Open();
 
             //Setup query
-            string newUserQuery = "INSERT INTO Movies (Title, Year, Origin, Length)";
-            newUserQuery += " VALUES (@Title, @Year, @Origin, @Length)";
+            string newUserQuery = "INSERT INTO Movies (Title, Year, Origin, Length, Creator)";
+            newUserQuery += " VALUES (@Title, @Year, @Origin, @Length, @Creator)";
             SqlCommand myCommand = new SqlCommand(newUserQuery, conn);
 
             //Setup new movie record details
@@ -101,6 +158,7 @@ namespace TheCoolMovieApp.Controllers
             myCommand.Parameters.AddWithValue("@Year", newMovie.Year);
             myCommand.Parameters.AddWithValue("@Origin", newMovie.Origin);
             myCommand.Parameters.AddWithValue("@Length", newMovie.Length);
+            myCommand.Parameters.AddWithValue("@Creator", UserModel.Username);
             myCommand.ExecuteNonQuery();
         }
 
@@ -109,8 +167,6 @@ namespace TheCoolMovieApp.Controllers
             IFormFile file = fileToUpload;
             AmazonS3Client client = ClientModel.S3Client;
             string bucketName = ClientModel.BucketName;
-            FileInfo destPath = new FileInfo(file.FileName);
-            var fileName = Path.GetFullPath(file.FileName);
             PutObjectRequest request = new PutObjectRequest
             {
                 BucketName = bucketName,
@@ -158,7 +214,7 @@ namespace TheCoolMovieApp.Controllers
             //If table does not exist, it gets created
             if (!exists)
             {
-                string createTable = "CREATE TABLE Movies (Id int IDENTITY(1,1) PRIMARY KEY, Title varchar(50),Year varchar(4),Origin varchar(30),Length varchar(4));";
+                string createTable = "CREATE TABLE Movies (Id int IDENTITY(1,1) PRIMARY KEY, Title varchar(50),Year varchar(4),Origin varchar(30),Length varchar(4), Creator varchar(50));";
                 myCommand = new SqlCommand(createTable, conn);
                 myCommand.ExecuteNonQuery();
             }

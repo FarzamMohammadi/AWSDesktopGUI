@@ -2,7 +2,7 @@
 
 @{ if (UserModel.LoggedIn == true)
     {
-        <h2>Add Movie:</h2>
+        <h2>Edit Movie:</h2>
         @using (Html.BeginForm("EditMovie", "Movie", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
             @Html.Label("Title:")
@@ -14,10 +14,7 @@
             @Html.TextBoxFor(model => model.Origin)
             @Html.Label("Length:")
             @Html.TextBoxFor(model => model.Length)
-            @Html.Label("File Location:")
-            @Html.TextBoxFor(model => model.File, new { type = "file" })
-            @Html.ValidationMessageFor(model => model.File)
-
+            @Html.TextBoxFor(model => model.Creator, new { style = "display: none;" })
             <button type="submit">Submit Changes</button>
         }
     }
