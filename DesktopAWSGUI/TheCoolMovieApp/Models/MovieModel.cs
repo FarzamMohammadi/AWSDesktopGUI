@@ -18,7 +18,7 @@ namespace TheCoolMovieApp.Models
         [Required]
         public IFormFile File { get; set; }
         public static List<MovieModel> MoviesToShow { get; set; }
-        public static string movieIDToDelete {get;set;}
+        public static string MovieIDToDelete {get;set;}
         public int Rating { get; set; }
     }
 }

@@ -59,18 +59,39 @@
                    Model.Rating
            )
         )
-            <button class="download-btn" type="submit">Download Movie</button>
+            <button class="download-btn" type="submit">Leave Rating</button>
         }
         <br />
         <br />
         <h2>Comments:</h2>
+        <br />
+        <br />
+        @using (Html.BeginForm("AddComment", "Movie", FormMethod.Post))
+        {
+            @Html.TextBoxFor(model => model.Title, new { style = "display: none;" })
+            @Html.TextBoxFor(model => model.Year, new { style = "display: none;" })
+            @Html.TextBoxFor(model => model.Origin, new { style = "display: none;" })
+            @Html.TextBoxFor(model => model.Length, new { style = "display: none;" })
+            @Html.TextBoxFor(model => model.Creator, new { style = "display: none;" })
+            <button type="submit">Edit/Add New Comment</button>
+        }
+        <div>
+            <table class="table table-striped">
+                @foreach (Tuple<string, string> comment in CommentModel.CommentList)
+                {
+                    <tr>
+                        <td>@comment.Item1</td>
+                        <td>@comment.Item2</td>
+                    </tr>
+                }
+            </table>
+        </div>
 
     }
     else
     {
-        <h3> Please Sign in to upload a movie.</h3>
+        <h1>Must sign in first.</h1>
     }
-
 }
 
 <style>

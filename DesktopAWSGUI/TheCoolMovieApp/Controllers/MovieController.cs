@@ -25,8 +25,9 @@ namespace TheCoolMovieApp.Controllers
             GetAllMovieToShow();
             return View();
         }
+       
 
-        private void GetAllMovieToShow()
+            private void GetAllMovieToShow()
         {   //Creates table if it doesnt exist to prevent exception
             CreateDBTable();
             SqlConnection conn = new SqlConnection();
@@ -103,7 +104,7 @@ namespace TheCoolMovieApp.Controllers
                 newRating["Title"] = movie.Title;
                 newRating["Creator"] = movie.Creator;
                 newRating["NumberOfRatings"] = "1";
-                newRating["Rating"] = movie.Rating;
+                newRating["Rating"] = movie.Rating.ToString();
                 await table.PutItemAsync(newRating);
             }
          
@@ -171,12 +172,16 @@ namespace TheCoolMovieApp.Controllers
         {
             return View();
         }
+        public IActionResult AddComment()
+        {
+            return View();
+        }
 
         public IActionResult EditMovie(MovieModel newMovie)
         {
             if (UserModel.Username == newMovie.Creator)
             {
-                DeleteMovieRecord(MovieModel.movieIDToDelete);
+                DeleteMovieRecord(MovieModel.MovieIDToDelete);
                 AddNewMovieToDB(newMovie);
             }
             else
@@ -203,38 +208,50 @@ namespace TheCoolMovieApp.Controllers
         }
         public ActionResult DeleteMovie(MovieModel movie)
         {
-            if (DeleteMovieS3(movie.Title))
+            if (movie.Creator == UserModel.Username)
             {
-                DeleteMovieRecord(movie.Title);
+                if (DeleteMovieS3(movie.Title))
+                {
+                    DeleteMovieRecord(movie.Title);
+                }
+                else
+                {
+                    //Delete Unsuccessful
+                    MyStringModel deleteUnsuccessful = new MyStringModel();
+                    deleteUnsuccessful.Message = "Delete Unsuccessful";
+                    return View("Error", deleteUnsuccessful);
+                }
+                GetAllMovieToShow();
+                return View("ViewAllMovies");
             }
             else
             {
-                //Delete Unsuccessful
-                MyStringModel deleteUnsuccessful = new MyStringModel();
-                deleteUnsuccessful.Message = "Delete Unsuccessful";
-                return View("Error", deleteUnsuccessful);
+                //If upload is Unsuccessful
+                MyStringModel noAccess = new MyStringModel();
+                noAccess.Message = "You are not the creator of this movie and thus do not have access to edit this movie";
+                return View("Error", noAccess);
             }
+           
 
-            GetAllMovieToShow();
-            return View("ViewAllMovies");
+           
         }
-        private void DeleteMovieRecord(string movieIDToDelete)
+        private void DeleteMovieRecord(string MovieIDToDelete)
         {
             //Delete record from table but once again makes sure the user and title match
             SqlConnection conn = new SqlConnection();
             string connString = ClientModel.RDSConnStr;
             conn.ConnectionString = connString;
             conn.Open();
-            string newUserQuery = "DELETE FROM Movies WHERE Title = '" + movieIDToDelete + "' AND Creator = '" + UserModel.Username + "';";
+            string newUserQuery = "DELETE FROM Movies WHERE Title = '" + MovieIDToDelete + "' AND Creator = '" + UserModel.Username + "';";
             SqlCommand myCommand = new SqlCommand(newUserQuery, conn);
             var reader = myCommand.ExecuteReader();
         }
 
-        private bool DeleteMovieS3(string movieIDToDelete)
+        private bool DeleteMovieS3(string MovieIDToDelete)
         {
             try
             {
-                ClientModel.S3Client.DeleteObjectAsync(new DeleteObjectRequest() { BucketName = ClientModel.BucketName, Key = movieIDToDelete });
+                ClientModel.S3Client.DeleteObjectAsync(new DeleteObjectRequest() { BucketName = ClientModel.BucketName, Key = MovieIDToDelete });
                 return true;
             }
             catch
@@ -251,6 +268,7 @@ namespace TheCoolMovieApp.Controllers
 
         public ActionResult RedirectToEditMovie(MovieModel movie)
         {
+            LoadComments(movie);
             //Sets title in to delete in database if user makes changes
             if (UserModel.Username == movie.Creator)
             {
@@ -266,19 +284,26 @@ namespace TheCoolMovieApp.Controllers
                 List<MovieModel> moviesToShow = new List<MovieModel>();
                 while (reader.Read())
                 {
-                    MovieModel.movieIDToDelete = reader.GetString(1);
+                    MovieModel.MovieIDToDelete = reader.GetString(1);
                 };
                 return View("EditMovie", movie);
             }
             else
             {
-                //If upload is Unsuccessful
-                MyStringModel noAccess = new MyStringModel();
-                noAccess.Message = "You are not the creator of this movie and thus do not have access to edit this movie";
-                return View("Error", noAccess);
+                return View("EditMovie", movie);
             }
         }
-    
+
+        private void LoadComments(MovieModel movie)
+        {
+            List<Tuple<string, string>> comments = new List<Tuple<string, string>>();
+            Tuple<string, string> one = new Tuple<string, string>("farzam", "asdffadssafdsfdafdsafdsafdsafdsfadsfdasfdsafdsafdsafdsafdsa");
+            Tuple<string, string> two = new Tuple<string, string>("Prsasadf", "234asdffad. \\nssafdsfdasdffsa3223afdsafdsafdsafdsf\nadsfdasfdsafdsafdsafdsafdsa");
+            comments.Add(one);
+            comments.Add(two);
+            CommentModel.CommentList = comments;
+        }
+
 
         //Limit of 2GB also added to web.config
         [HttpPost]

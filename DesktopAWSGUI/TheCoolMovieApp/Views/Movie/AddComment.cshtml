@@ -1,0 +1,14 @@
+﻿@model TheCoolMovieApp.Models.CommentModel
+@if (UserModel.LoggedIn == true)
+{
+    <h1>Comment:</h1>
+    @using (Html.BeginForm("AddNewComment", "Movie", FormMethod.Post))
+    {
+        @Html.TextBoxFor(model => model.Comment, new { @class = "form-control form-control-custom", @style = "width:1000px; height:100px;" })
+        <button class="delete-btn" type="submit">Submit</button>
+    }
+}
+else
+{
+    <h1>Must be signed in to leave comment.</h1>
+}
