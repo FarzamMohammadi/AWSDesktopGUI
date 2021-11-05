@@ -7,15 +7,21 @@
 
             @Html.TextBoxFor(model => model.Title, new { style = "display: none;" })
             @Html.TextBoxFor(model => model.Creator, new { style = "display: none;" })
-            <button type="submit">Delete Movie</button>
+            <button class="delete-btn" type="submit">Delete Movie</button>
         }
+        <br />
+        <br />
+        <br />
         @using (Html.BeginForm("DownloadMovie", "Movie", FormMethod.Post))
         {
 
             @Html.TextBoxFor(model => model.Title, new { style = "display: none;" })
             @Html.TextBoxFor(model => model.Creator, new { style = "display: none;" })
-            <button type="submit">Delete Movie</button>
+            <button class="download-btn" type="submit">Download Movie</button>
         }
+        <br />
+        <br />
+        <br />
         <h2>Edit Movie:</h2>
         @using (Html.BeginForm("EditMovie", "Movie", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
@@ -31,9 +37,65 @@
             @Html.TextBoxFor(model => model.Creator, new { style = "display: none;" })
             <button type="submit">Submit Changes</button>
         }
+        <br />
+        <br />
+        <h2>Rate:</h2>
+        @using (Html.BeginForm("RateMovie", "Movie", FormMethod.Post))
+        {
+            @Html.TextBoxFor(model => model.Title, new { style = "display: none;" })
+            @Html.TextBoxFor(model => model.Creator, new { style = "display: none;" })
+            @Html.DropDownListFor(
+            model => model.Rating,
+            new SelectList(
+                  new List<Object>{
+                       new { value = 1, text = "1 Star" },
+                       new { value = 2, text = "2 Stars" },
+                       new { value = 3, text = "3 Stars" },
+                       new { value = 4, text = "4 Stars" },
+                       new { value = 5, text = "5 Stars"}
+                    },
+                  "value",
+                  "text",
+                   Model.Rating
+           )
+        )
+            <button class="download-btn" type="submit">Download Movie</button>
+        }
+        <br />
+        <br />
+        <h2>Comments:</h2>
+
     }
     else
     {
         <h3> Please Sign in to upload a movie.</h3>
     }
+
 }
+
+<style>
+
+    .download-btn, .delete-btn {
+        float: right;
+        width: 100%;
+        transition-duration: 0.4s;
+        border-radius: 10px;
+        padding: 14px 40px;
+    }
+
+        .delete-btn:hover {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .download-btn:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+    .div {
+        width: 5px;
+        height: 13px;
+        display: inline-block;
+    }
+</style>

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "2y9NCXosLtSTFZy41ZXg1a7g+L48qPgFAMkmn2W4JHploMX/KRUG4fiELSJMd+RH2gRl7f848pQBcnu6qiJ5pg==",
+  "dgSpecHash": "ZLKm226ZfOcCaoRyGbo3dJzJgLEFkmpnHsjvfzQFtxPcP6wx1VbRPK3xgXHEbl5VXKgPj2c+TsybgQzM4c7ISQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\farza\\Desktop\\Lab Review\\AWSDesktopGUI\\DesktopAWSGUI\\TheCoolMovieApp\\TheCoolMovieApp.csproj",
   "expectedPackageFiles": [
@@ -36,6 +36,7 @@
     "C:\\Users\\farza\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\farza\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\farza\\.nuget\\packages\\mimetypemapofficial\\1.0.17\\mimetypemapofficial.1.0.17.nupkg.sha512",
+    "C:\\Users\\farza\\.nuget\\packages\\mimetypesmap\\1.0.8\\mimetypesmap.1.0.8.nupkg.sha512",
     "C:\\Users\\farza\\.nuget\\packages\\newtonsoft.json\\10.0.1\\newtonsoft.json.10.0.1.nupkg.sha512",
     "C:\\Users\\farza\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Users\\farza\\.nuget\\packages\\syroot.windows.io.knownfolders\\1.2.3\\syroot.windows.io.knownfolders.1.2.3.nupkg.sha512",

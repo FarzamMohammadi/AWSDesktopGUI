@@ -446,6 +446,15 @@
           "lib/netcoreapp3.1/MimeTypes.dll": {}
         }
       },
+      "MimeTypesMap/1.0.8": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/MimeTypesMap.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/MimeTypesMap.dll": {}
+        }
+      },
       "Newtonsoft.Json/10.0.1": {
         "type": "package",
         "dependencies": {
@@ -2334,6 +2343,20 @@
         "lib/netstandard2.0/MimeTypes.dll",
         "mimetypemapofficial.1.0.17.nupkg.sha512",
         "mimetypemapofficial.nuspec"
+      ]
+    },
+    "MimeTypesMap/1.0.8": {
+      "sha512": "iOm6Zar+yVROhlyrGGSJTfThvNoHLUeYeQQND9YD/ot/nA2qsWUp9kP2MHTdF9P7I8afW6eCf8vdELLZjDFdSQ==",
+      "type": "package",
+      "path": "mimetypesmap/1.0.8",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net452/MimeTypesMap.dll",
+        "lib/netstandard1.1/MimeTypesMap.dll",
+        "lib/netstandard2.0/MimeTypesMap.dll",
+        "mimetypesmap.1.0.8.nupkg.sha512",
+        "mimetypesmap.nuspec"
       ]
     },
     "Newtonsoft.Json/10.0.1": {
@@ -5906,6 +5929,7 @@
       "AWSSDK.SimpleSystemsManagement >= 3.7.7.16",
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.11",
       "MimeTypeMapOfficial >= 1.0.17",
+      "MimeTypesMap >= 1.0.8",
       "Syroot.Windows.IO.KnownFolders >= 1.2.3"
     ]
   },
@@ -5971,6 +5995,10 @@
           "MimeTypeMapOfficial": {
             "target": "Package",
             "version": "[1.0.17, )"
+          },
+          "MimeTypesMap": {
+            "target": "Package",
+            "version": "[1.0.8, )"
           },
           "Syroot.Windows.IO.KnownFolders": {
             "target": "Package",

@@ -1,4 +1,5 @@
 ﻿using Amazon;
+using Amazon.DynamoDBv2;
 using Amazon.S3;
 using Amazon.SimpleSystemsManagement;
 using Amazon.SimpleSystemsManagement.Model;
@@ -16,6 +17,7 @@ namespace TheCoolMovieApp.Models
         private static string SecretKey = "j288HLPbDcI9kZMy6CcFjgFiAEnYnKHG0bJoJT/N";
         public static RegionEndpoint Region = RegionEndpoint.GetBySystemName("ca-central-1");
         public static AmazonS3Client S3Client = new AmazonS3Client(AccessKeyID, SecretKey, Region);
+        public static AmazonDynamoDBClient dynamoDBclient = new AmazonDynamoDBClient(AccessKeyID, SecretKey, Region);
         public static string BucketName = "movie-bucket-farzam";
         public static string RDSConnStr = GetValueAsync("/Client/RDSConnStr").Result;
 

@@ -64,6 +64,10 @@
               "target": "Package",
               "version": "[1.0.17, )"
             },
+            "MimeTypesMap": {
+              "target": "Package",
+              "version": "[1.0.8, )"
+            },
             "Syroot.Windows.IO.KnownFolders": {
               "target": "Package",
               "version": "[1.2.3, )"
