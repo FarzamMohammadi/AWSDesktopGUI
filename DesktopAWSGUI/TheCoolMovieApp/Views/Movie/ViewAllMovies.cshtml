@@ -1,16 +1,40 @@
-﻿@model TheCoolMovieApp.Models.UserModel
+﻿@model TheCoolMovieApp.Models.MovieModel
 @{ if (UserModel.LoggedIn == true)
     {
-    <div>
-        @using (Html.BeginForm("RedirectToAddNewMovie", "Movie", FormMethod.Post))
+        <div class="button">
+            @using (Html.BeginForm("RedirectToAddNewMovie", "Movie", FormMethod.Post))
+            {
+                <button type="submit">Add New Movie</button>
+            }
+        </div>
+        //List all existing movies
+        <div class="head">
+            <h1>All Movies</h1>
+        </div>
+        @using (Html.BeginForm("EditAMovie", "Movie", FormMethod.Post))
         {
-            <button type="submit">Add New Movie</button>
+            @foreach (MovieModel movie in MovieModel.MoviesToShow)
+            {
+                @Html.TextBoxFor(model => movie.Title, new { style = "display: none;" })
+                @Html.TextBoxFor(model => movie.Year, new { style = "display: none;" })
+                @Html.TextBoxFor(model => movie.Origin, new { style = "display: none;" })
+                @Html.TextBoxFor(model => movie.Length, new { style = "display: none;" })
+                <div>
+                    <button type="submit">
+                        @movie.Title
+                    </button>
+                </div>
+            }
         }
-    </div>
-      //List all existing movies
+
     }
     else
     {
         <h3> You must sign in for full access!</h3>
     }
 }
+<style>
+    .head {
+        text-align: center;
+    }
+</style>

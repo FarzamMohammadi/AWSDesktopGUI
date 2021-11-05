@@ -1,4 +1,5 @@
 ﻿using Amazon;
+using Amazon.S3;
 using Amazon.SimpleSystemsManagement;
 using Amazon.SimpleSystemsManagement.Model;
 using Microsoft.Data.SqlClient;
@@ -11,21 +12,14 @@ namespace TheCoolMovieApp.Models
 {
     class ClientModel
     {
-        public string AccessKeyID { get; set; }
-        public string SecretKey { get; set; }
-        private readonly RegionEndpoint Region;
+        private static string AccessKeyID = "AKIAW6YHDHANOHPKQLD2";
+        private static string SecretKey = "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";
+        public static RegionEndpoint Region = RegionEndpoint.GetBySystemName("ca-central-1");
+        public static AmazonS3Client S3Client = new AmazonS3Client(AccessKeyID, SecretKey, Region);
+        public static string BucketName = "movie-bucket-farzam";
+        public static string RDSConnStr = GetValueAsync("/Client/RDSConnStr").Result;
 
-        public string RDSConnStr { get; set; }
-        public ClientModel()
-        {
-            AccessKeyID = "AKIAW6YHDHANOHPKQLD2";
-            SecretKey = "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";
-            Region = RegionEndpoint.GetBySystemName("ca-central-1");
-            //Sets DB connections string using parameter store value
-            RDSConnStr = GetValueAsync("/Client/RDSConnStr").Result;
-        }
-
-        public async Task<string> GetValueAsync(string parameter)
+        public static async Task<string> GetValueAsync(string parameter)
         {
             //Gets Parameter store value of DB connection string 
             var ssmClient = new AmazonSimpleSystemsManagementClient(AccessKeyID, SecretKey, Region);
@@ -36,8 +30,6 @@ namespace TheCoolMovieApp.Models
                 WithDecryption = true
             });
             return response.Parameter.Value;
-
-
         }
     }
 }

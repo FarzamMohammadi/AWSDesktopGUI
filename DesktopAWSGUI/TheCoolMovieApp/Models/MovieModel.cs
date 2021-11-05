@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace TheCoolMovieApp.Models
 {
@@ -14,7 +15,14 @@ namespace TheCoolMovieApp.Models
         public string Origin { get; set; }
         public string Length { get; set; }
         [Required]
-        public  string FilePath { get; set; }
-
+        public IFormFile File { get; set; }
+        public static List<MovieModel> MoviesToShow { get; set; }
+       /* public MovieModel(string title, string year, string origin, string length)
+        {
+            Title = title;
+            Year = year;
+            Origin = origin;
+            Length = length;
+        }*/
     }
 }

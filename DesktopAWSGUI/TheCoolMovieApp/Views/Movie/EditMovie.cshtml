@@ -3,7 +3,7 @@
 @{ if (UserModel.LoggedIn == true)
     {
         <h2>Add Movie:</h2>
-        @using (Html.BeginForm("AddNewMovie", "Movie", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        @using (Html.BeginForm("EditMovie", "Movie", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
             @Html.Label("Title:")
             @Html.TextBoxFor(model => model.Title)
@@ -18,7 +18,7 @@
             @Html.TextBoxFor(model => model.File, new { type = "file" })
             @Html.ValidationMessageFor(model => model.File)
 
-            <button type="submit">Add Movie</button>
+            <button type="submit">Submit Changes</button>
         }
     }
     else

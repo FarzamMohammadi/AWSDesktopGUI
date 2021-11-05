@@ -85,3 +85,6 @@ C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\TheCoolMovieApp\bi
 C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\TheCoolMovieApp\obj\Debug\netcoreapp3.1\Razor\Views\Movie\ViewAllMovies.cshtml.g.cs
 C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\TheCoolMovieApp\obj\Debug\netcoreapp3.1\Razor\Views\Movie\AddMovie.cshtml.g.cs
 C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\TheCoolMovieApp\bin\Debug\netcoreapp3.1\AWSSDK.SimpleSystemsManagement.dll
+C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\TheCoolMovieApp\bin\Debug\netcoreapp3.1\web.config
+C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\TheCoolMovieApp\obj\Debug\netcoreapp3.1\Razor\Views\Movie\EditMovie.cshtml.g.cs
+C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\TheCoolMovieApp\obj\Debug\netcoreapp3.1\Razor\Views\Movie\Error.cshtml.g.cs
