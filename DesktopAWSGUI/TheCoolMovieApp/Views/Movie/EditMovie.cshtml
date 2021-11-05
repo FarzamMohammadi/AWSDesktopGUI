@@ -3,12 +3,16 @@
 @{ if (UserModel.LoggedIn == true)
     {
         @using (Html.BeginForm("DeleteMovie", "Movie", FormMethod.Post))
-        { 
+        {
 
             @Html.TextBoxFor(model => model.Title, new { style = "display: none;" })
-            @Html.TextBoxFor(model => model.Year, new { style = "display: none;" })
-            @Html.TextBoxFor(model => model.Origin, new { style = "display: none;" })
-            @Html.TextBoxFor(model => model.Length, new { style = "display: none;" })
+            @Html.TextBoxFor(model => model.Creator, new { style = "display: none;" })
+            <button type="submit">Delete Movie</button>
+        }
+        @using (Html.BeginForm("DownloadMovie", "Movie", FormMethod.Post))
+        {
+
+            @Html.TextBoxFor(model => model.Title, new { style = "display: none;" })
             @Html.TextBoxFor(model => model.Creator, new { style = "display: none;" })
             <button type="submit">Delete Movie</button>
         }

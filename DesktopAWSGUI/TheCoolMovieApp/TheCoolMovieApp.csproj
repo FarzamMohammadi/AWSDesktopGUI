@@ -10,6 +10,9 @@
     <PackageReference Include="AWSSDK.S3" Version="3.7.3.24" />
     <PackageReference Include="AWSSDK.SimpleSystemsManagement" Version="3.7.7.16" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.11" />
+    <PackageReference Include="MimeTypeMapOfficial" Version="1.0.17" />
+    <PackageReference Include="MimeTypesMap" Version="1.0.8" />
+    <PackageReference Include="Syroot.Windows.IO.KnownFolders" Version="1.2.3" />
   </ItemGroup>
 
 </Project>

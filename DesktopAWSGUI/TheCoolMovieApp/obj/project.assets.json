@@ -437,6 +437,15 @@
           }
         }
       },
+      "MimeTypeMapOfficial/1.0.17": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.1/MimeTypes.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/MimeTypes.dll": {}
+        }
+      },
       "Newtonsoft.Json/10.0.1": {
         "type": "package",
         "dependencies": {
@@ -485,6 +494,18 @@
         },
         "runtime": {
           "lib/netstandard1.0/_._": {}
+        }
+      },
+      "Syroot.Windows.IO.KnownFolders/1.2.3": {
+        "type": "package",
+        "dependencies": {
+          "System.Security.Principal.Windows": "4.7.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Syroot.KnownFolders.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Syroot.KnownFolders.dll": {}
         }
       },
       "System.Collections/4.3.0": {
@@ -1279,7 +1300,7 @@
       "System.Security.Principal.Windows/4.7.0": {
         "type": "package",
         "compile": {
-          "ref/netcoreapp3.0/_._": {}
+          "ref/netcoreapp3.0/System.Security.Principal.Windows.dll": {}
         },
         "runtime": {
           "lib/netstandard2.0/System.Security.Principal.Windows.dll": {}
@@ -2299,6 +2320,22 @@
         "version.txt"
       ]
     },
+    "MimeTypeMapOfficial/1.0.17": {
+      "sha512": "f6DSQSYTckCjq1ifRj0fSLiEmDv+22uo4+JjTeb3MNZK3Ban1XLjA+bTQtD+/7x2NBEAGzBLYIRpS1IU2OgIAw==",
+      "type": "package",
+      "path": "mimetypemapofficial/1.0.17",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net452/MimeTypes.dll",
+        "lib/net48/MimeTypes.dll",
+        "lib/netcoreapp2.2/MimeTypes.dll",
+        "lib/netcoreapp3.1/MimeTypes.dll",
+        "lib/netstandard2.0/MimeTypes.dll",
+        "mimetypemapofficial.1.0.17.nupkg.sha512",
+        "mimetypemapofficial.nuspec"
+      ]
+    },
     "Newtonsoft.Json/10.0.1": {
       "sha512": "ebWzW9j2nwxQeBo59As2TYn7nYr9BHicqqCwHOD1Vdo+50HBtLPuqdiCYJcLdTRknpYis/DSEOQz5KmZxwrIAg==",
       "type": "package",
@@ -2338,6 +2375,20 @@
         "lib/netstandard1.0/_._",
         "runtime.native.system.4.3.0.nupkg.sha512",
         "runtime.native.system.nuspec"
+      ]
+    },
+    "Syroot.Windows.IO.KnownFolders/1.2.3": {
+      "sha512": "6dk4nZ7OFEZCrGCPpcBeeE9PoQo3zEqIBpz6DHhG7SNC5TkJ3n9fdUEKMpZ2qkTbJoG+/dgkfRhoAE3qYdS/hg==",
+      "type": "package",
+      "path": "syroot.windows.io.knownfolders/1.2.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/netstandard2.0/Syroot.KnownFolders.dll",
+        "lib/netstandard2.0/Syroot.KnownFolders.xml",
+        "syroot.windows.io.knownfolders.1.2.3.nupkg.sha512",
+        "syroot.windows.io.knownfolders.nuspec"
       ]
     },
     "System.Collections/4.3.0": {
@@ -5853,7 +5904,9 @@
       "AWSSDK.DynamoDBv2 >= 3.7.0.92",
       "AWSSDK.S3 >= 3.7.3.24",
       "AWSSDK.SimpleSystemsManagement >= 3.7.7.16",
-      "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.11"
+      "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.11",
+      "MimeTypeMapOfficial >= 1.0.17",
+      "Syroot.Windows.IO.KnownFolders >= 1.2.3"
     ]
   },
   "packageFolders": {
@@ -5914,6 +5967,14 @@
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
             "version": "[5.0.11, )"
+          },
+          "MimeTypeMapOfficial": {
+            "target": "Package",
+            "version": "[1.0.17, )"
+          },
+          "Syroot.Windows.IO.KnownFolders": {
+            "target": "Package",
+            "version": "[1.2.3, )"
           }
         },
         "imports": [

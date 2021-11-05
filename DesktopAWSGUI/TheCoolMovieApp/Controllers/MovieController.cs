@@ -4,10 +4,12 @@ using Amazon.S3.Transfer;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
+using Syroot.Windows.IO;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using TheCoolMovieApp.Models;
 
@@ -68,7 +70,17 @@ namespace TheCoolMovieApp.Controllers
             GetAllMovieToShow();
             return View("ViewAllMovies");
         }
+        public async void DownloadMovie(MovieModel movie)
+        {
+            GetObjectResponse response = await ClientModel.S3Client.GetObjectAsync(ClientModel.BucketName, movie.Title);
+            string type = MimeTypes.MimeTypeMap.GetExtension(response.Headers.ContentType.ToString()).ToString();
+            //Uses 'MediaTypeMap' nuget to convert content type to file extension. This saves the file as proper format that was uploaded in
+            string downloadPath = KnownFolders.Downloads.DefaultPath + "\\"+movie.Title + MimeTypes.MimeTypeMap.GetExtension(response.Headers.ContentType.ToString()).ToString();
+            TransferUtility fileTransferUtility =
+            new TransferUtility(ClientModel.S3Client);
 
+            fileTransferUtility.Download(downloadPath, ClientModel.BucketName, movie.Title);
+        }
         public ActionResult DeleteMovie(MovieModel movie)
         {
             if (DeleteMovieS3(movie.Title))
@@ -202,6 +214,7 @@ namespace TheCoolMovieApp.Controllers
             {
                 BucketName = bucketName,
                 Key = title,
+                ContentType = fileToUpload.ContentType
             };
             try
             {
