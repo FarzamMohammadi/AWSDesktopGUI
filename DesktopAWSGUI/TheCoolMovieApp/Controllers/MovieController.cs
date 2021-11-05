@@ -220,10 +220,11 @@ namespace TheCoolMovieApp.Controllers
                 //since the file has the same name as title
                 moviesToShow.Add(movieRecord);
             };
+
             MovieModel.MoviesToShow = moviesToShow;
         }
 
-        public void RateMovie(MovieModel movie)
+        public ActionResult RateMovie(MovieModel movie)
         {
             Tuple<string, string, int> movieRating = GetCurrentRating(movie.Title, movie.Creator).Result;
             string recordRating = movieRating.Item1;
@@ -233,10 +234,12 @@ namespace TheCoolMovieApp.Controllers
             if (recordRating != "" && RecordnumberOfRatings != "")
             {
                 AddRatingToDB(movie, recordRating, RecordnumberOfRatings, recordId);
+                return View("EditMovie", movie);
             }
             else
             {
                 AddRatingToDB(movie, "", "", 0);
+                return View("EditMovie", movie);
             }
         }
 
@@ -273,7 +276,7 @@ namespace TheCoolMovieApp.Controllers
                 newRating["Id"] = tableItemCount + 1;
                 newRating["Title"] = movie.Title;
                 newRating["Creator"] = movie.Creator;
-                newRating["NumberOfRatings"] = "1";
+                newRating["NumberOfRatings"] = 1;
                 newRating["Rating"] = movie.Rating.ToString();
                 await table.PutItemAsync(newRating);
             }
@@ -322,7 +325,7 @@ namespace TheCoolMovieApp.Controllers
                     }
                     if (scanKey == "NumberOfRatings")
                     {
-                        numberOfRatingsToReturn = scanValue.S.ToString();
+                        numberOfRatingsToReturn = scanValue.N.ToString();
                     }
                     if (scanKey == "Rating")
                     {

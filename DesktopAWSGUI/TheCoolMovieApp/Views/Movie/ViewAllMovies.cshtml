@@ -11,9 +11,9 @@
         <div class="head">
             <h1>All Movies</h1>
         </div>
-        @using (Html.BeginForm("RedirectToEditMovie", "Movie", FormMethod.Post))
+        @foreach (MovieModel movie in MovieModel.MoviesToShow)
         {
-            @foreach (MovieModel movie in MovieModel.MoviesToShow)
+            @using (Html.BeginForm("RedirectToEditMovie", "Movie", FormMethod.Post))
             {
                 @Html.TextBoxFor(model => movie.Title, new { style = "display: none;" })
                 @Html.TextBoxFor(model => movie.Year, new { style = "display: none;" })
