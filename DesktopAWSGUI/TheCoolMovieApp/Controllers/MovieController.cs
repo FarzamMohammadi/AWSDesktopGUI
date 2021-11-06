@@ -367,7 +367,7 @@ namespace TheCoolMovieApp.Controllers
             GetAllMovieToShow();
             return View("ViewAllMovies");
         }
-        public async void DownloadMovie(MovieModel movie)
+        public async Task<ActionResult> DownloadMovie(MovieModel movie)
         {
             GetObjectResponse response = await ClientModel.S3Client.GetObjectAsync(ClientModel.BucketName, movie.Title);
             string type = MimeTypes.MimeTypeMap.GetExtension(response.Headers.ContentType.ToString()).ToString();
@@ -378,6 +378,8 @@ namespace TheCoolMovieApp.Controllers
             new TransferUtility(ClientModel.S3Client);
 
             fileTransferUtility.Download(downloadPath, ClientModel.BucketName, movie.Title);
+            return View("EditMovie", movie);
+
         }
         public ActionResult DeleteMovie(MovieModel movie)
         {
