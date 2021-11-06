@@ -92,3 +92,4 @@ C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\TheCoolMovieApp\bi
 C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\TheCoolMovieApp\bin\Debug\netcoreapp3.1\MimeTypes.dll
 C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\TheCoolMovieApp\bin\Debug\netcoreapp3.1\MimeTypesMap.dll
 C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\TheCoolMovieApp\obj\Debug\netcoreapp3.1\Razor\Views\Movie\AddComment.cshtml.g.cs
+C:\Users\farza\Desktop\Lab Review\AWSDesktopGUI\DesktopAWSGUI\TheCoolMovieApp\bin\Debug\netcoreapp3.1\aws-beanstalk-tools-defaults.json

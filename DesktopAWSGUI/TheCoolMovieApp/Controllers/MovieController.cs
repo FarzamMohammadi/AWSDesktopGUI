@@ -25,11 +25,34 @@ namespace TheCoolMovieApp.Controllers
             GetAllMovieToShow();
             return View();
         }
+
+        public IActionResult Search()
+        {
+            return View();
+        }
+
         public ActionResult AddNewComment(MovieModel movie)
         {
             //Checks to see if comment already exists. Only returns results if not past 24hr deadline
             string existingComment = GetUserComment(movie).Result.Item1;
             if(existingComment == null)
+            {
+                //If it doesnt exit, leaves view comment section empty
+                return View("AddComment", movie);
+            }
+            else
+            {
+                //If comment exists adds it to movie before passing the model to view
+                movie.Comment = existingComment;
+                return View("AddComment", movie);
+            }
+        }
+
+        public ActionResult RedirectToSearch(MovieModel movie)
+        {
+            //Checks to see if comment already exists. Only returns results if not past 24hr deadline
+            string existingComment = GetUserComment(movie).Result.Item1;
+            if (existingComment == null)
             {
                 //If it doesnt exit, leaves view comment section empty
                 return View("AddComment", movie);
