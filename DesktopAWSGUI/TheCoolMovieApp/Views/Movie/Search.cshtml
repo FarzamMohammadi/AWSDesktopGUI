@@ -1,0 +1,31 @@
+﻿@model TheCoolMovieApp.Models.SearchModel
+
+@{ if (UserModel.LoggedIn == true)
+    {
+        <h2>Add Movie:</h2>
+        @using (Html.BeginForm("ViewSearchResults", "Movie", FormMethod.Post))
+        {
+            @Html.Label("First Value: (1-5)")
+            @Html.TextBoxFor(model => model.FirstNumber)
+            @Html.DropDownListFor(model => model.TypeOfSearch,
+    new SelectList(
+          new List<Object>{
+           new { value = 1, text = ">" },
+           new { value = 2, text = "<" },
+
+},
+"value",
+"text"
+)
+)
+
+            @Html.TextBoxFor(model => model.SecondNumber)
+            @Html.Label("Second Value: (0-5)")
+            <button type="submit">Search Titles</button>
+        }
+    }
+    else
+    {
+        <h3> Please Sign in to upload a movie.</h3>
+    }
+}

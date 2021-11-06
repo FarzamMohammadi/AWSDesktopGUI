@@ -1,0 +1,46 @@
+﻿@model TheCoolMovieApp.Models.MovieModel
+@{ if (UserModel.LoggedIn == true)
+    {
+      
+        //List all movies based on search
+        <div class="head">
+            <h1>Search Results:</h1>
+        </div>
+        @foreach (MovieModel movie in MovieModel.MoviesToShow)
+        {
+            @using (Html.BeginForm("RedirectToEditMovie", "Movie", FormMethod.Post))
+            {
+                @Html.TextBoxFor(model => movie.Title, new { style = "display: none;" })
+                @Html.TextBoxFor(model => movie.Year, new { style = "display: none;" })
+                @Html.TextBoxFor(model => movie.Origin, new { style = "display: none;" })
+                @Html.TextBoxFor(model => movie.Length, new { style = "display: none;" })
+                @Html.TextBoxFor(model => movie.Creator, new { style = "display: none;" })
+                <div>
+                    <button class="movie-buttons" type="submit">@movie.Title - Current Rating: @movie.Rating  -</button>
+                </div>
+            }
+        }
+    }
+    else
+    {
+        <h3> You must sign in for full access!</h3>
+    }
+}
+<style>
+    .head {
+        text-align: center;
+    }
+
+    .movie-buttons, .button {
+        float: right;
+        width: 100%;
+        transition-duration: 0.4s;
+        border-radius: 10px;
+        padding: 14px 40px;
+    }
+
+        .movie-buttons:hover {
+            background-color: DodgerBlue;
+            color: white;
+        }
+</style>

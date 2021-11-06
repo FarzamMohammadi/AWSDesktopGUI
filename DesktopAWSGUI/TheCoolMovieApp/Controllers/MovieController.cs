@@ -31,6 +31,44 @@ namespace TheCoolMovieApp.Controllers
             return View();
         }
 
+
+        public ActionResult ViewSearchResults(SearchModel searchCriteria)
+        {
+            // 1 = >
+            // 2 = <
+
+            List<MovieModel> allMovies = MovieModel.MoviesToShow;
+            List<MovieModel> searchList = new List<MovieModel>();
+
+            if (searchCriteria.TypeOfSearch == "1")  // meaning >
+            { 
+                foreach(MovieModel movie in allMovies){
+                    if(movie.Rating >= searchCriteria.FirstNumber)
+                    {
+                        if(movie.Rating <= searchCriteria.SecondNumber)
+                        {
+                            searchList.Add(movie);
+
+                        }
+                    }
+                }
+            }
+            else // meaning <
+            {
+                foreach (MovieModel movie in allMovies)
+                {
+                    if (movie.Rating <= searchCriteria.FirstNumber)
+                    {
+                        if(movie.Rating >= searchCriteria.SecondNumber)
+                        {
+                            searchList.Add(movie);
+                        }
+                    }
+                }
+            }
+            MovieModel.MoviesToShow = searchList;
+            return View("SearchResult");
+        }
         public ActionResult AddNewComment(MovieModel movie)
         {
             //Checks to see if comment already exists. Only returns results if not past 24hr deadline

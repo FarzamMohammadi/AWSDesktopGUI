@@ -11,7 +11,7 @@
     "additional-options"   : "\"aws:autoscaling:launchconfiguration,SecurityGroups\"=\"sg-09f583622ea60581a\";\"aws:ec2:vpc,Subnets\"=\"subnet-0c299341a1758420b\"",
     "solution-stack"       : "64bit Amazon Linux 2 v2.2.7 running .NET Core",
     "environment-type"     : "SingleInstance",
-    "cname"                : "thecoolmovieapp",
+    "cname"                : "coolmovieapp",
     "instance-type"        : "t2.micro",
     "key-pair"             : "",
     "instance-profile"     : "aws-elasticbeanstalk-ec2-role",
