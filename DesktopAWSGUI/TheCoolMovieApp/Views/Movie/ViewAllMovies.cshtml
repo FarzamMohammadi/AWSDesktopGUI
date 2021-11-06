@@ -22,7 +22,7 @@
                 @Html.TextBoxFor(model => movie.Creator, new { style = "display: none;" })
                 <div>
                     <button type="submit">
-                        @movie.Title
+                        @movie.Title -      Current Average Rating: @movie.Rating
                     </button>
                 </div>
             }

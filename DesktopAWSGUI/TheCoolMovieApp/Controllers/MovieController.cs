@@ -217,14 +217,56 @@ namespace TheCoolMovieApp.Controllers
                 movieRecord.Origin = reader.GetString(3);
                 movieRecord.Length = reader.GetString(4);
                 movieRecord.Creator = reader.GetString(5);
+                movieRecord.Rating = GetMovieRating(movieRecord.Title).Result;
                 //since the file has the same name as title
                 moviesToShow.Add(movieRecord);
             };
-
-            MovieModel.MoviesToShow = moviesToShow;
+            List<MovieModel> DescendingOrder = moviesToShow.OrderByDescending(o => o.Rating).ToList();
+            MovieModel.MoviesToShow = DescendingOrder;
         }
 
-        public ActionResult RateMovie(MovieModel movie)
+        private async Task<double> GetMovieRating(string title)
+        {
+            AmazonDynamoDBClient client = ClientModel.dynamoDBclient;
+            string tableName = "movie-ratings";
+            var request = new ScanRequest
+            {
+                TableName = tableName
+            };
+
+            var response = await client.ScanAsync(request);
+            var result = response.Items;
+
+            //Gets current rating and number of ratings and Id if movie mathces title and creator
+            for (int i = 0; i < result.Count; i++)
+            {
+                string scanRating = "";
+                string scanTitle = "";
+
+                var items = result[i];
+                foreach (var item in items)
+                {
+                    var scanKey = item.Key;
+                    var scanValue = item.Value;
+
+                    if (scanKey == "Title")
+                    {
+                        scanTitle = scanValue.S.ToString();
+                    }
+                    if (scanKey == "Rating")
+                    {
+                        scanRating = scanValue.S.ToString();
+                    }
+                }
+                if (scanTitle == title && scanRating != null)
+                {
+                    return double.Parse(scanRating);
+                }
+            }
+            return 0;
+        }
+
+            public ActionResult RateMovie(MovieModel movie)
         {
             Tuple<string, string, int> movieRating = GetCurrentRating(movie.Title, movie.Creator).Result;
             string recordRating = movieRating.Item1;
